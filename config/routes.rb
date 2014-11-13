@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  resources :answers
+
+  resources :users
+
+  resources :questions do
+    resources :answers, only: [:new, :create]
+  end
+
+  resources :bs_posts
+
   get 'groundworkdocs/animations'
 
   get 'groundworkdocs/boxes'
