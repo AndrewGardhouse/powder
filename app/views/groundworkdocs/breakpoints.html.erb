@@ -1,0 +1,143 @@
+      <div class="padded">
+        <div class="row">
+          <div class="three fifths bounceInRight animated">
+            <h1 class="zero museo-slab">Targeted Breakpoints</h1>
+            <p class="quicksand">Logical <a href="media_queries.html">media queries</a> targeting browsers that meet the declared conditions</p>
+          </div>
+          <div class="two fifths align-right-ipad align-right-desktop flipInX animated">
+            <p class="quicksand">Documentation: Breakpoints</p>
+            <p><a href="media_queries.html" class="green button">Also See: Media Queries <i class="icon-arrow-right"></i></a></p>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="one whole padded">
+          <div class="bounceInLeft animated">
+            <h4>Logically Named Breakpoints</h4>
+            <div class="row">
+              <div class="one half padded">
+                <dl>
+                  <dt>Small Mobiles</dt>
+                  <dd>Designed to target mobile devices with viewport sizes smaller than an iPhone.</dd>
+                </dl>
+                <pre data-lang="css">$small-mobile: &quot;(max-width: 319px)&quot;;</pre>
+              </div>
+              <div class="one half padded">
+                <dl>
+                  <dt>iPhone (up to 4S)</dt>
+                  <dd>Designed to target mobile devices with viewport sizes up to the iPhone 4/4S.</dd>
+                </dl>
+                <pre data-lang="css">$iphone: &quot;(min-device-width: 320px) and (max-device-width: 480px)&quot;;</pre>
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="one half padded">
+                <dl>
+                  <dt>iPhone (up to 5)</dt>
+                  <dd>Designed to target mobile devies with viewport sizes up to the iPhones 5.</dd>
+                </dl>
+                <pre data-lang="css">$iphone5: &quot;(min-device-width: 320px) and (max-device-width: 568px)&quot;;</pre>
+              </div>
+              <div class="one half padded">
+                <dl>
+                  <dt>Mobile</dt>
+                  <dd>Designed to target mobile devices with viewport sizes similar to the larger Androids.</dd>
+                </dl>
+                <pre data-lang="css">$mobile: &quot;(max-width: 480px)&quot;;</pre>
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="one half padded">
+                <dl>
+                  <dt>Not Mobile</dt>
+                  <dd>Designed to target devices with viewport sizes greater than those within the <em>"mobile"</em> category.</dd>
+                </dl>
+                <pre data-lang="css">$not-mobile: &quot;(min-width: 481px)&quot;;</pre>
+              </div>
+              <div class="one half padded">
+                <dl>
+                  <dt>Small Tablet</dt>
+                  <dd>Designed to target devices with viewport sizes smaller than an iPad.</dd>
+                </dl>
+                <pre data-lang="css">$small-tablet: &quot;(max-width: 767px)&quot;;</pre>
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="one half padded">
+                <dl>
+                  <dt>Tablet</dt>
+                  <dd>Designed to target devices with viewport sizes similar to or greater than an iPad.</dd>
+                </dl>
+                <pre data-lang="css">$tablet: &quot;(min-width: 768px)&quot;;</pre>
+              </div>
+              <div class="one half padded">
+                <dl>
+                  <dt>iPad (including iPad Mini)</dt>
+                  <dd>Designed to target devices with viewport sizes similar to an iPad.</dd>
+                </dl>
+                <pre data-lang="css">$ipad: &quot;(min-width: 768px) and (max-width:1024px)&quot;;</pre>
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="one half padded">
+                <dl>
+                  <dt>iPad (Retina only)</dt>
+                  <dd>Designed to target devices with viewport sizes similar to an iPad, and with retina display.</dd>
+                </dl>
+                <pre data-lang="css">$retina-ipad: &quot;(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2)&quot;;</pre>
+              </div>
+              <div class="one half padded">
+                <dl>
+                  <dt>Not Desktop</dt>
+                  <dd>Designed to target devices with viewport sizes up to, but not greater than an iPad.</dd>
+                </dl>
+                <pre data-lang="css">$not-desktop: &quot;(max-width: 1024px)&quot;;</pre>
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="one half padded">
+                <dl>
+                  <dt>Desktop</dt>
+                  <dd>Designed to target devices with viewport sizes greater than an iPad.</dd>
+                </dl>
+                <pre data-lang="css">$desktop: &quot;(min-width: 1025px)&quot;;</pre>
+              </div>
+              <div class="one half padded">
+                <dl>
+                  <dt>Retina</dt>
+                  <dd>Designed to target devices of any size with retina display.</dd>
+                </dl>
+                <pre data-lang="css">$retina: &quot;(-webkit-min-device-pixel-ratio: 1.5)&quot;;</pre>
+              </div>
+            </div><br>
+            <hr><br>
+            <h4>Example Usage (SCSS)</h4>
+            <pre data-lang="css">.custom_thing {
+  font-size: 1em;
+  color: green;
+  @media #{$mobile} {
+    font-size: 2em;
+    color: blue;
+  }
+}</pre><br>
+            <h4>Result (CSS)</h4>
+            <pre data-lang="css">.custom_thing {
+  font-size: 1em;
+  color: green;
+}
+@media (max-width: 480px) {
+  .custom_thing {
+    font-size: 2em;
+    color: blue;
+  }
+}</pre><br>
+            <hr><br>
+          </div>
+          <div class="bounceInUp animated">
+            <h4>Media Queries</h4>
+            <p><a href="media_queries.html">Media queries</a> using these named breakpoints are what make Groundwork responsive &mdash; along with some help from Javascript when it's needed for additional functionality.</p>
+            <p><a href="media_queries.html" class="green button">Read More <i class="icon-arrow-right"></i></a></p>
+          </div>
+        </div>
+      </div>

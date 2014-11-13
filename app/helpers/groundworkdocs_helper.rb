@@ -1,0 +1,2 @@
+module GroundworkdocsHelper
+end

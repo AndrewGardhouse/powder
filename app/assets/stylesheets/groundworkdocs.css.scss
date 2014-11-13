@@ -1,0 +1,10 @@
+// GroundworkCSS 2 Documentation
+
+$root_path:      "./";
+$images_path:    asset-path("images/");
+$fonts_path:     "groundworkcss/";
+$boxsizing_path: asset-path("groundworkcss/libs/boxsizing.htc");
+$PIE_path:       asset-path("groundworkcss/libs/PIE.htc");
+@import 'groundworkcss/groundwork';
+@import 'groundworkcss/demo/jquery.snippet';
+@import 'groundworkcss/demo/groundworkdocs';

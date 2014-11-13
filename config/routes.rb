@@ -1,4 +1,44 @@
 Rails.application.routes.draw do
+  get 'groundworkdocs/animations'
+
+  get 'groundworkdocs/boxes'
+
+  get 'groundworkdocs/breakpoints'
+
+  get 'groundworkdocs/buttons'
+
+  get 'groundworkdocs/forms'
+
+  get 'groundworkdocs/grid'
+
+  get 'groundworkdocs/helpers'
+
+  get 'groundworkdocs/home'
+
+  get 'groundworkdocs/icons'
+
+  get 'groundworkdocs/layout_a'
+
+  get 'groundworkdocs/layout_b'
+
+  get 'groundworkdocs/layout_c'
+
+  get 'groundworkdocs/media_queries'
+
+  get 'groundworkdocs/messages'
+
+  get 'groundworkdocs/navigation'
+
+  get 'groundworkdocs/placeholder_text'
+
+  get 'groundworkdocs/responsive_text'
+
+  get 'groundworkdocs/tables'
+
+  get 'groundworkdocs/tabs'
+
+  get 'groundworkdocs/typography'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

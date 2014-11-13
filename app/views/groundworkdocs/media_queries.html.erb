@@ -1,0 +1,75 @@
+      <div class="padded">
+        <div class="row">
+          <div class="three fifths bounceInRight animated">
+            <h1 class="zero museo-slab">Media Queries</h1>
+            <p class="quicksand">Restrict CSS rules to targeted browser conditions, such as viewport widths & pixel densities</p>
+          </div>
+          <div class="two fifths align-right-ipad align-right-desktop flipInX animated">
+            <p class="quicksand">Documentation: Media Queries</p>
+            <p><a href="breakpoints.html" class="green button">Also See: Targeted Breakpoints <i class="icon-arrow-right"></i></a></p>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="one whole padded">
+          <div class="bounceInLeft animated">
+            <h4>Example Media Queries</h4>
+            <div class="row">
+              <div class="one half padded">
+                <p>Mobile</p>
+                <pre data-lang="css">@media (max-width: 480px) {
+  // CSS that only applies to viewports 
+  // less than or equal to 480 pixles goes here
+}</pre>
+              </div>
+              <div class="one half padded">
+                <p>Not Mobile</p>
+                <pre data-lang="css">@media (min-width: 481px) {
+  // CSS that only applies to viewports 
+  // greater than 480 pixles goes here
+}</pre>
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="one half padded">
+                <p>Small Tablet</p>
+                <pre data-lang="css">@media (max-width: 767px) {
+  // CSS that only applies to viewports 
+  // less than 768 pixles goes here
+}</pre>
+              </div>
+              <div class="one half padded">
+                <p>iPad</p>
+                <pre data-lang="css">@media (min-width: 768px) and (max-width:1024px) {
+  // CSS that only applies to viewports 
+  // of similar size to the ipad goes here
+}</pre>
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="one half padded">
+                <p>Desktop</p>
+                <pre data-lang="css">@media (min-width: 1025px) {
+  // CSS that only applies to viewports 
+  // greater than 1024 pixles goes here
+}</pre>
+              </div>
+              <div class="one half padded">
+                <p>iPad Retina</p>
+                <pre data-lang="css">@media (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  // CSS that only applies to viewports 
+  // of similar size to the ipad and 
+  // with double pixel density goes here
+}</pre>
+              </div>
+            </div><br>
+            <hr><br>
+          </div>
+          <div class="bounceInUp animated">
+            <h4>Targeted Breakpoints</h4>
+            <p>Groundwork utilizes Sass variables to introduce <a href="breakpoints.html">logical media queries</a> which can help keep code organized, meaningful, and easier to read. The Sass variable names make targeting common devices and viewport size ranges a more intuitive and more natural step in the optimization process.</p>
+            <p><a href="breakpoints.html" class="green button">Read More <i class="icon-arrow-right"></i></a></p>
+          </div>
+        </div>
+      </div>
