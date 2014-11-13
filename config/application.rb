@@ -6,6 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# compile assets for production
+Bundler.require(:default, :assets, Rails.env)
+
 module Powder
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
