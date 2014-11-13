@@ -4,6 +4,9 @@ require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
+Bundler.require(*Rails.groups)
+
+# compile assets for production
 Bundler.require(:default, :assets, Rails.env)
 
 module Powder
@@ -21,4 +24,3 @@ module Powder
     # config.i18n.default_locale = :de
   end
 end
-
