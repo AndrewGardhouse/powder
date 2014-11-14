@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :media_comments
   end
 
-  resources :locations do
+  resources :locations, only:[:show, :edit, :destroy] do
     resources :location_comments, only: [:new, :create, :destroy]
   end
 

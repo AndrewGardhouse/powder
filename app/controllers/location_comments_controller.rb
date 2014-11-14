@@ -1,11 +1,10 @@
 class LocationCommentsController < ApplicationController
   def index
-  end
-
-  def new
+  	@location = Location.all
   end
 
   def edit
+  	@location = Location.find(params[:id])
   end
 
   def show
