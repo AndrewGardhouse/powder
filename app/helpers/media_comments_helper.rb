@@ -1,0 +1,2 @@
+module MediaCommentsHelper
+end

@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
 
-  resources :answers
+  resources :media do
+    resources :media_comments
+  end
+
+  resouces :locations do
+    resouces :location_comments only: [:new, :create, :destroy]
+  end
 
   resources :users
 
   resources :questions do
-    resources :answers, only: [:new, :create]
+    resources :answers, only: [:new, :create, :destroy]
   end
 
   resources :bs_posts
