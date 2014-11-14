@@ -4,8 +4,8 @@ Rails.application.routes.draw do
     resources :media_comments
   end
 
-  resouces :locations do
-    resouces :location_comments only: [:new, :create, :destroy]
+  resources :locations do
+    resources :location_comments, only: [:new, :create, :destroy]
   end
 
   resources :users
@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   end
 
   resources :bs_posts
+
+  root to: 'media#index'
 
   get 'groundworkdocs/animations'
 
