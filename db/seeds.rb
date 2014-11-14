@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Location.create(title: 'Mt Seymore', url:'http://www.mountseymour.com/_media/images/maps/Mt_Seymour_2014_alpine_map_3360x3720_v3.jpg', description: 'Small mountaint location near the beautiful city of Vancouver, if the clouds missed you, expect to be blown away by the panomaric view', location: 'North Vancouver, BC V7H ')
+Location.create(title: 'Mt Seymore', url:'http://www.mountseymour.com/_media/images/maps/Mt_Seymour_2014_alpine_map_3360x3720_v3.jpg', description: 'Small mountaint location near the beautiful city of Vancouver, if the clouds missed you, expect to be blown away by the panomaric view', location: 'North Vancouver, BC V7H ', essay: 'some long ass description of the mountain, could even be open-source or sumshie')
 Location.create(title: 'Panorama', url: 'http://www.skirebel.com/magazine/ski-resort-pictures/620916/Panorama-Trail-Map.jpg', description: 'Enjoy the Panoramic view!', location: 'Near Cranbrook, 2000 Panorama Dr
 Panorama, BC V0A 1T0')
 Location.create(title: 'Red Resort', url: 'http://s3.onthesnow.com/images/trailmaps/british-columbia/red-mountain-resort/20130906091235/xlarge.jpg', description: 'Its red!', location: 'Interior, close to US/Can border 4300 Red Mountain Rd, Rossland, BC V0G 1Y0')

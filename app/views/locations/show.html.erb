@@ -1,2 +1,14 @@
-<h1>Locations#show</h1>
-<p>Find me in app/views/locations/show.html.erb</p>
+<%= link_to "Back to all mountains", locations_path %> <br/>
+
+<h2> <%= @location.title %> </h2>
+<%= image_tag(@location.url, size: "700") %> 
+<p><%= @location.essay %> </p>
+
+<h3>Reviews of <%= @location.title %></h3>
+
+	<% @location.location_comments.each do |comment| %>
+	<%= comment.comment %>
+	<%= comment.vote %> <br/>
+	<%end%>
+
+	<%= link_to "Write a review!", new_location_location_comment_path(@location) %>

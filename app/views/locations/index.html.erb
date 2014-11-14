@@ -2,9 +2,11 @@
 
 
 <% @locations.each do |location| %>
-	<img style="heigh: 100px; width: 100px;" src="<%= image_path(location.url) %>">
-	<h2> <%= location.title %> </h2>
+	<h2> <%= link_to location.title, location_path(location)  %> </h2>
 	<p> <%= location.description %> </p>
 	<h3 class="upvote"> <%= location.upvote %> </h3>
 	<hr>
 <% end %>
+
+
+
