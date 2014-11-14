@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141114023647) do
+ActiveRecord::Schema.define(version: 20141114032039) do
 
   create_table "answers", force: true do |t|
     t.string   "description"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20141114023647) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "upvote",                  default: 0
+    t.string   "location"
   end
 
   create_table "media", force: true do |t|
