@@ -7,6 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <ul class='menu'>
+    <li><%=link_to "Q & A", questions_path %></li>
+    <li><%=link_to "Media", media_path %></li>
+    <li><%=link_to "Mountains", locations_path %></li>
+    <li><%=link_to "Classifieds", bs_posts_path %></li>
+    <li><%=link_to "Tips and Deals", locations_path %></li>
+    <li><%=link_to "Events", locations_path %></li>
+    <li><%=link_to "About", locations_path %></li>
+  </ul>
 
 <%= yield %>
 
