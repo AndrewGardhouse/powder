@@ -1,2 +1,10 @@
-<h1>Locations#index</h1>
-<p>Find me in app/views/locations/index.html.erb</p>
+<h1>Find yo Mountain!</h1>
+
+
+<% @locations.each do |location| %>
+	<img style="heigh: 100px; width: 100px;" src="<%= image_path(location.url) %>">
+	<h2> <%= location.title %> </h2>
+	<p> <%= location.description %> </p>
+	<h3 class="upvote"> <%= location.upvote %> </h3>
+	<hr>
+<% end %>

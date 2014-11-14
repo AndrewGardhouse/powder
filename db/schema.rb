@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141113235703) do
+ActiveRecord::Schema.define(version: 20141114023647) do
 
   create_table "answers", force: true do |t|
     t.string   "description"
@@ -45,9 +45,10 @@ ActiveRecord::Schema.define(version: 20141113235703) do
   create_table "locations", force: true do |t|
     t.string   "title"
     t.string   "url"
-    t.string   "description"
+    t.text     "description", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "upvote",                  default: 0
   end
 
   create_table "media", force: true do |t|
