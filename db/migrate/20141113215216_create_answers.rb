@@ -3,8 +3,8 @@ class CreateAnswers < ActiveRecord::Migration
     create_table :answers do |t|
       t.string     :description
       t.integer    :votes
-      t.refernces  :question
-      t.refernces  :user
+      t.references :question
+      t.references :user
 
       t.timestamps
     end
