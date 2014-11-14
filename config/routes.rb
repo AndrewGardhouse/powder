@@ -8,11 +8,13 @@ Rails.application.routes.draw do
     resources :location_comments, only: [:new, :create, :destroy]
   end
 
-  resources :users, only: [:new, :create, :edit, :destroy]
+  resources :users, only: [:new, :create, :edit, :destroy, :show]
 
   resources :questions do
     resources :answers, only: [:new, :create, :destroy]
   end
+
+  resources :sessions, only: [:new, :create, :destroy]
 
   resources :bs_posts
 
