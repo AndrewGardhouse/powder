@@ -8,13 +8,15 @@ Rails.application.routes.draw do
     resources :location_comments, only: [:new, :create, :destroy]
   end
 
-  resources :users
+  resources :users, only: [:new, :create, :edit, :destroy]
 
   resources :questions do
     resources :answers, only: [:new, :create, :destroy]
   end
 
   resources :bs_posts
+
+  root to: 'users#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

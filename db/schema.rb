@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20141114023647) do
+=======
+ActiveRecord::Schema.define(version: 20141114024843) do
+>>>>>>> feature/users
 
   create_table "answers", force: true do |t|
     t.string   "description"
@@ -87,7 +91,7 @@ ActiveRecord::Schema.define(version: 20141114023647) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password_digest"
+    t.text     "password_digest",     limit: 255
     t.integer  "upvotes"
     t.integer  "question_id"
     t.integer  "answer_id"
