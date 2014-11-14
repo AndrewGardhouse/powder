@@ -4,15 +4,15 @@ class LocationsController < ApplicationController
   end
 
   def edit
-  	@locations = Location.find(params[:id])
+  	@location = Location.find(params[:id])
   end
 
   def show
-  	@locations = Location.find(params[:id])
+  	@location = Location.find(params[:id])
   end
 
   def update
-  	@locations = Location.find(params[:id])
+  	@location = Location.find(params[:id])
 
   	if @location.update_attributes(location_params)
   		redirect_to location_path(@location)
@@ -21,6 +21,6 @@ class LocationsController < ApplicationController
 
   protected 
   def location_params
-  	params.require(:location).permit(:title, :url, :description, :upvote) 
+  	params.require(:location).permit(:title, :url, :description, :upvote, :location) 
   end
 end

@@ -1,2 +1,14 @@
-<h1>LocationComments#new</h1>
 <p>Find me in app/views/location_comments/new.html.erb</p>
+
+<%= link_to "Back to mountain", location_path(@location)%>
+
+<h2> Write a review of <%= @location.title %> </h2>
+
+<%= form_for([@location, @comment]) do |f| %>
+
+<%= f.label "comment" %> 
+<%= f.text_area "comment"%>
+<%= f.label "vote"%>
+<%= f.text_area "vote"%> <br/>
+<%= f.submit "Submit"%>
+<%end%>
