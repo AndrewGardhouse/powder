@@ -2,14 +2,33 @@
 <html>
 <head>
   <title>Powder</title>
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  	<%= csrf_meta_tags %>
 
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class='nav mobile' title="Mobile Menu">
+    <ul>
+      <li><button><%=link_to "Q & A", questions_path %></button></li>
+      <li><button><%=link_to "Media", media_path %></button></li>
+      <li><button><%=link_to "Mountains", locations_path %></button></li>
+      <li><button><%=link_to "Classifieds", bs_posts_path %></button></li>
+      <li><button><%=link_to "Tips and Deals", locations_path %></button></li>
+      <li><button><%=link_to "Events", locations_path %></button></li>
+      <li><button><%=link_to "About", locations_path %></button></li>
+    </ul>
+  </nav>
 
 <%= yield %>
 <%= render 'layouts/footer' %>
 </body>
 </html>
+
