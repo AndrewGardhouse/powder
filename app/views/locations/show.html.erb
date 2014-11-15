@@ -9,6 +9,9 @@
 	<% @location.location_comments.each do |comment| %>
 	<%= comment.comment %>
 	<%= comment.vote %> <br/>
+	<%if comment.user %>
+	<p style="color:blue;">	<%= comment.user.name%> </p>
+		<%end%>
 	<%end%>
 
 	<%= link_to "Write a review!", new_location_location_comment_path(@location) %>
