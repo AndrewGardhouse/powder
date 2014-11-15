@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :locations do
-    resources :location_comments, only: [:new, :create]
+    resources :location_comments, only: [:new, :create, :destroy]
   end
 
   resources :users, only: [:new, :create, :edit, :destroy, :show]

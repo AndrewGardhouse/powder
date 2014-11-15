@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141114203510) do
+ActiveRecord::Schema.define(version: 20141115010021) do
 
   create_table "answers", force: true do |t|
     t.string   "description"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20141114203510) do
     t.integer  "bspost_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",                           default: false
   end
 
 end

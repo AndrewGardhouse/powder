@@ -18,6 +18,12 @@ class LocationCommentsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@comment = @location.location_comments.find(params["id"])
+		@comment.destroy
+		redirect_to location_path(@location)
+	end
+
   protected 
 
   	def load_location

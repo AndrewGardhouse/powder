@@ -8,10 +8,14 @@
 
 	<% @location.location_comments.each do |comment| %>
 	<%= comment.comment %>
-	<%= comment.vote %> <br/>
-	<%if comment.user %>
-	<p style="color:blue;">	<%= comment.user.name%> </p>
+	<%= comment.vote %> 
+		<%if comment.user %>
+			<p style="color:blue;">	<%= comment.user.name%> </p>
 		<%end%>
+		<% if current_user && current_user.admin %>
+			<%= link_to "DESTRUCTION", location_location_comment_path(@location, comment), method: :delete, comfirm: "Are you sure?" %><br/>
+		<%end%>
+
 	<%end%>
 
 	<%= link_to "Write a review!", new_location_location_comment_path(@location) %>
