@@ -1,2 +1,29 @@
 <h1>Media#new</h1>
-<p>Find me in app/views/media/new.html.erb</p>
+
+<%= form_for @medium do |f| %>
+  <% if @medium.errors.any? %>
+    <div>
+      <%= pluralize(@medium.errors.count, "error") %> prevented the account from being created:
+      <ul>
+        <% @medium.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= f.label "Title" %>
+    <%= f.text_field "title" %>
+  </div>
+  <div>
+    <%= f.label "Url" %>
+    <%= f.text_field "url" %>
+  </div>
+  <div>
+    <%= f.label "Description" %>
+    <%= f.text_area "description" %>
+  </div>
+  <div>
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
