@@ -24,6 +24,7 @@
       <li><button><%=link_to "Tips and Deals", locations_path %></button></li>
       <li><button><%=link_to "Events", locations_path %></button></li>
       <li><button><%=link_to "About", locations_path %></button></li>
+      <li><button><%=link_to "#{current_user.name} Profile", user_path(current_user.id) %></button></li>
     </ul>
   </nav>
 
