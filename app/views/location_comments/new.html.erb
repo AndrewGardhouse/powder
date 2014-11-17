@@ -5,7 +5,17 @@
 <h2> Write a review of <%= @location.title %> </h2>
 
 <%= form_for([@location, @comment]) do |f| %>
+	<% if @comment.errors.any?%>
+		<div>
+			<%= pluralize(@comment.errors.count, "error") %>
+			prevented the review from being saved: 
+			<ul>
+				<% @comment.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<%end%>
+			</ul>
 
+	<%end%>
 <%= f.label "Comment" %> 
 <%= f.text_area "comment"%>
 <%= f.label "vote"%>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :locations do
     resources :location_comments, only: [:new, :create, :destroy]
+    get :upvote
   end
 
   resources :users, only: [:new, :create, :edit, :destroy, :show]
