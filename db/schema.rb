@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141116185443) do
+ActiveRecord::Schema.define(version: 20141117190857) do
 
   create_table "answers", force: true do |t|
     t.string   "description"
@@ -103,5 +103,25 @@ ActiveRecord::Schema.define(version: 20141116185443) do
 
   add_index "users", ["photo_comment_id"], name: "index_users_on_photo_comment_id"
   add_index "users", ["photo_id"], name: "index_users_on_photo_id"
+
+  create_table "video_comments", force: true do |t|
+    t.string   "text"
+    t.integer  "votes",      default: 0
+    t.integer  "user_id"
+    t.integer  "video_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "videos", force: true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "description"
+    t.integer  "votes",            default: 0
+    t.integer  "user_id"
+    t.integer  "video_comment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

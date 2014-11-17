@@ -1,5 +1,17 @@
 <form class="form-horizontal">
+  <%= form_for @user do |f| %>
   <fieldset>
+  <%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div>
+      <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
     <div class="form-group">
       <label for="inputName" class="col-lg-2 control-label">Full Name</label>
       <div class="col-lg-10">
@@ -32,6 +44,7 @@
       </div>
     </div>
   </fieldset>
+  <% end %>
 </form>
 
 <!-- 
