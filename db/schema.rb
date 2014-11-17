@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141115010021) do
+ActiveRecord::Schema.define(version: 20141116185443) do
 
   create_table "answers", force: true do |t|
     t.string   "description"
@@ -53,23 +53,22 @@ ActiveRecord::Schema.define(version: 20141115010021) do
     t.text     "essay"
   end
 
-  create_table "media", force: true do |t|
-    t.string   "title"
-    t.string   "url"
-    t.integer  "vote"
-    t.string   "description"
-    t.string   "type"
+  create_table "photo_comments", force: true do |t|
+    t.string   "comment"
+    t.integer  "upvotes",    default: 0
     t.integer  "user_id"
-    t.integer  "media_comment_id"
+    t.integer  "photo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "media_comments", force: true do |t|
-    t.string   "comment"
-    t.integer  "vote"
+  create_table "photos", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "image"
+    t.integer  "upvotes",          default: 0
     t.integer  "user_id"
-    t.integer  "media_id"
+    t.integer  "photo_comment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -93,13 +92,16 @@ ActiveRecord::Schema.define(version: 20141115010021) do
     t.integer  "upvotes"
     t.integer  "question_id"
     t.integer  "answer_id"
-    t.integer  "medium_id"
-    t.integer  "media_comment_id"
     t.integer  "location_comment_id"
     t.integer  "bspost_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin",                           default: false
+    t.integer  "photo_id"
+    t.integer  "photo_comment_id"
   end
+
+  add_index "users", ["photo_comment_id"], name: "index_users_on_photo_comment_id"
+  add_index "users", ["photo_id"], name: "index_users_on_photo_id"
 
 end

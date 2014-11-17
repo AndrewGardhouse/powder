@@ -1,0 +1,6 @@
+<h1>Photo#index</h1>
+
+<% @photos.each do |photo| %>
+  <p><%= photo.title %></p>
+  <p><%= link_to image_tag(photo.image_url(:thumb)), photo_path(photo.id) %></p>
+<% end %>

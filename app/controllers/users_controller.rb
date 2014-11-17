@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to show
+      redirect_to user_url(@user.id)
     else
       render :new
     end
