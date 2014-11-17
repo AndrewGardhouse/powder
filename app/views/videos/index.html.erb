@@ -1,0 +1,6 @@
+<h1>Videos#index</h1>
+
+<% @videos.each do |video| %>
+  <p><%= video.title %></p>
+  <p><%= raw(video.youtube_embed(video.url)) %></p>
+<% end %>
