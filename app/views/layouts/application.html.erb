@@ -18,13 +18,13 @@
   <nav class='nav mobile' title="Mobile Menu">
     <ul>
       <li><button><%=link_to "Q & A", questions_path %></button></li>
-      <li><button><%=link_to "Media", media_path %></button></li>
+      <li><button><%=link_to "Photos", photos_path %></button></li>
       <li><button><%=link_to "Mountains", locations_path %></button></li>
       <li><button><%=link_to "Classifieds", bs_posts_path %></button></li>
       <li><button><%=link_to "Tips and Deals", locations_path %></button></li>
       <li><button><%=link_to "Events", locations_path %></button></li>
       <li><button><%=link_to "About", locations_path %></button></li>
-      <li><button><%=link_to "#{current_user.name} Profile", user_path(current_user.id) %></button></li>
+      <% if current_user %><li><button><%=link_to "#{current_user.name}'s Profile", user_path(current_user.id) %></button></li><%end%>
     </ul>
   </nav>
 

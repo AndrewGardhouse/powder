@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :media do
-    resources :media_comments
+  resources :photos do
+    resources :photo_comments, only: [:new, :create, :destroy]
   end
 
   resources :locations do
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :bs_posts
 
-  root to: 'users#new'
+  root to: 'locations#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

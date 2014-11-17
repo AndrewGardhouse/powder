@@ -1,0 +1,10 @@
+<%= link_to "Back to photos", photos_path%>
+
+<h1>Let Them Know What You Think!</h1>
+
+<%= form_for([@photo, @comment]) do |f| %>
+
+<%= f.label "Comment" %> 
+<%= f.text_area "comment"%>
+<%= f.submit "Submit"%>
+<%end%>

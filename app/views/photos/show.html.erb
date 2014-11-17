@@ -1,0 +1,21 @@
+<h1><%= @photo.title %></h1>
+
+<p><%= image_tag @photo.image_url %></p>
+<p>Description:</p>
+<p><%= @photo.description %></p>
+<p> Posted By: <%= @photo.user.name %> <button>UpVote</button> </p>
+
+<h3>Comments</h3>
+
+<% if current_user %>
+  <% @photo.photo_comments.each do |comment| %>
+    <p><%= comment.comment %></p>
+    - <%= comment.user.name %><br/>
+    <small>Posted at: <%= comment.created_at %></small>
+  <% end %>
+  <% unless current_user.name == @photo.user.name %>
+    <p><%= link_to "Leave a comment", new_photo_photo_comment_path(@photo) %></p>
+  <% end %>
+<% else %>
+  <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own.</p> 
+<% end %>
