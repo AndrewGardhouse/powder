@@ -5,10 +5,15 @@
 <p><%= @location.essay %> </p>
 
 <h3>Reviews of <%= @location.title %></h3>
+<%if @comments.count > 0 %>
+	<p><%= @location.vote_average%>/10</p>
+<%end%>
 
-	<% @location.location_comments.each do |comment| %>
+<%= link_to "upvote", location_upvote_path(@location.id) %>
+
+	<% @comments.each do |comment| %>
 	<%= comment.comment %>
-	<%= comment.vote %> 
+	<%= comment.vote %> <br/>
 		<%if comment.user %>
 			<p style="color:blue;">	<%= comment.user.name%> </p>
 		<%end%>
@@ -17,5 +22,8 @@
 		<%end%>
 
 	<%end%>
-
-	<%= link_to "Write a review!", new_location_location_comment_path(@location) %>
+	<% if current_user%>
+		<%= link_to "Write a review!", new_location_location_comment_path(@location) %>
+	<%else%>
+		Log in to write a review!
+	<%end%>

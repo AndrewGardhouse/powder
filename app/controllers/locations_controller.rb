@@ -9,6 +9,13 @@ class LocationsController < ApplicationController
 
   def show
   	@location = Location.find(params[:id])
+    @comments = @location.location_comments.all
+  end
+
+  def upvote
+    #@location = Location.find(params["location_id"])
+    Location.increment_counter(:upvote, params["location_id"])
+    redirect_to locations_path
   end
 
   def update
