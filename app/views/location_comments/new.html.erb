@@ -1,24 +1,59 @@
 
+<h2> Review <%= @location.title %> </h2>
+<hr>
 
-<%= link_to "Back to mountain", location_path(@location)%>
+<div class="form-horizontal">
+  <fieldset>
 
-<h2> Write a review of <%= @location.title %> </h2>
+		<%= form_for([@location, @comment]) do |f| %>
+			<% if @comment.errors.any?%>
+				<div>
+					<%= pluralize(@comment.errors.count, "error") %>
+					prevented the review from being saved: 
+					<ul>
+						<% @comment.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+							<%end%>
+						<%end%>
+					</ul>
+<!-- 
+<#%= f.label "Comment" %> 
+<#%= f.text_area "comment"%>
+<#%= f.label "vote"%>
+<#%= f.text_area "vote"%> <br/>
+<#%= f.submit "Submit"%> -->
 
-<%= form_for([@location, @comment]) do |f| %>
-	<% if @comment.errors.any?%>
-		<div>
-			<%= pluralize(@comment.errors.count, "error") %>
-			prevented the review from being saved: 
-			<ul>
-				<% @comment.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-				<%end%>
-			</ul>
+			<div class="list-group container-fluid">
+			  <form class="form-inline" role="form">
+			    <div class="form-group">
+			    	<div class="col-lg-offset-4 col-lg-4">
+			        <%= f.text_area "comment", :class => 'form-control', :placeholder => 'Comment' %>  
+			      </div>
+			    </div>
+					<div class="form-group">
+		      	<div class="col-lg-offset-4 col-lg-4">
+			        <select class="form-control" id="select">
+			          <option>Mountain Rating</option>
+			          <option>2</option>
+			          <option>3</option>
+			          <option>4</option>
+			          <option>5</option>
+			        </select>
+		      	</div>
+		      </div>
+					<div class="form-group">
+	    		</div>
+	    		<div class="form-group">
+	      		<div class="col-lg-6 col-lg-offset-2 text-right">
+	        		<button class="btn btn-default">Cancel</button>
+	        		<%= f.submit "Submit", :class => 'btn btn-primary' %>
+	      		</div>
+	      	</div>
+			  </form>
+			</div>
+			
+		<%end%>
+	</fieldset>
+</div>
 
-	<%end%>
-<%= f.label "Comment" %> 
-<%= f.text_area "comment"%>
-<%= f.label "vote"%>
-<%= f.text_area "vote"%> <br/>
-<%= f.submit "Submit"%>
-<%end%>
+<br><%= link_to "Back to mountain", location_path(@location)%><br>
