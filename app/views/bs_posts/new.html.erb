@@ -1,2 +1,35 @@
-<h1>BsPostss#new</h1>
-<p>Find me in app/views/bs_postss/new.html.erb</p>
+<h1>Get some shreddy new gear or get rid of yours!</h1>
+
+<%= form_for @bs_post do |f| %> 
+
+<div>
+	<%= f.label "title" %>
+	<%= f.text_area "title"%>
+</div>
+
+<div>
+	<%= f.label "description" %>
+	<%= f.text_area "description"%>
+</div>
+
+<div>
+	<%= f.label "type" %>
+	<%= f.text_area "type"%>
+</div>
+
+<div>
+	<%= f.label "image form a file" %>
+	<%= f.file_field :image%>
+</div>
+
+<div>
+	<%= f.label "cost" %>
+	<%= f.text_area "cost"%>
+</div>
+
+<div>
+	<%= f.submit "Post it!"%>
+</div>
+
+
+<%end%>
