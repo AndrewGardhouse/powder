@@ -1,24 +1,25 @@
+<h1>Log In</h1>
+<hr/>
+
 <div class="form-horizontal">
   <fieldset>
   <%= form_tag sessions_path do %>
   <div class="form-group">
-      <%= label_tag :email, nil, class: "col-lg-2 control-label" %>
-      <div class="col-lg-10">
-        <%= text_field_tag :email, nil, class: "form-control" %>
+      <div class="col-lg-offset-4 col-lg-4">
+        <%= text_field_tag :email, nil, class: "form-control", :placeholder => 'Email' %>
       </div>
     </div>
     <div class="form-group">
-      <%= label_tag "password", nil,  class: 'col-lg-2 control-label' %>
-      <div class="col-lg-10">
-        <%= password_field_tag :password, nil, class: 'form-control'%>
+      <div class="col-lg-offset-4 col-lg-4">
+        <%= password_field_tag :password, nil, class: 'form-control', :placeholder => 'Password' %>
       </div>
       </div>
     <div class="form-group">
     </div>
     <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
+      <div class="col-lg-6 col-lg-offset-2 text-right">
         <button class="btn btn-default">Cancel</button>
-        <%= submit_tag  "Log In", class: 'btn btn-default'%>
+        <%= submit_tag  "Log In", class: 'btn btn-primary'%>
       </div>
     </div>
   </fieldset>
