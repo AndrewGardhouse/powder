@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   resources :bs_posts
 
-  root to: 'videos#new'
+  root to: 'videos#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

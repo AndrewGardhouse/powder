@@ -1,14 +1,14 @@
-<h1>Media</h1>
+<h1><%= @photo.title %></h1>
 <hr/>
 
 <div class="text-center">
-  <img src="http://upload.wikimedia.org/wikipedia/commons/6/61/Snowboarding1.jpg" class="img-thumbnail" />
+  <%= image_tag @photo.image_url, :class => 'img-thumbnail' %>
 </div>
 
 <div>
-  <p>Sweet air!</p>
-  <small><cite title="Source Title">Username</cite></small>
-  <span class="label label-primary">Air</span>
+  <p><%= @photo.description %></p>
+  <small><cite title="Source Title"><%= @photo.user.name %></cite></small>
+  <span class="label label-primary">Snowboard</span>
 </div>
 
 <div class="comments container">
@@ -16,32 +16,17 @@
     <h3>Comments</h3>
     <hr/>
   </div>
-  <div class="well well-sm row">
-    <img src="http://lorempixel.com/48/48/people" alt="" class="img-circle pull-left" />
-    <a href="#">ggoulart</a> <em>on March 5th, 2014</em><br>
-    What a cool photo!
-  </div>
-</div>
-
-<!-- 
-<h1><%= @photo.title %></h1>
-
-<p><%= image_tag @photo.image_url %></p>
-<p>Description:</p>
-<p><%= @photo.description %></p>
-<p> Posted By: <%= @photo.user.name %> <button>UpVote</button> </p>
-
-<h3>Comments</h3>
-
-<% if current_user %>
   <% @photo.photo_comments.each do |comment| %>
-    <p><%= comment.comment %></p>
-    - <%= comment.user.name %><br/>
-    <small>Posted at: <%= comment.created_at %></small>
+    <div class="well well-sm row">
+      <img src="http://lorempixel.com/48/48/people" alt="" class="img-circle pull-left" />
+      <a href="#"><%= comment.user.name %></a> <em><%= comment.created_at %></em><br>
+      <%= comment.comment %>
+    </div>
   <% end %>
-  <% unless current_user.name == @photo.user.name %>
-    <p><%= link_to "Leave a comment", new_photo_photo_comment_path(@photo) %></p>
+    <% unless current_user.name == @photo.user.name %>
+      <p><%= link_to "Leave a comment", new_photo_photo_comment_path(@photo) %></p>
+    <% end %>
+  <% unless current_user %>
+    <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own.</p> 
   <% end %>
-<% else %>
-  <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own.</p> 
-<% end %> -->
+</div>
