@@ -1,2 +1,18 @@
-<h1>Videos#show</h1>
-<p>Find me in app/views/videos/show.html.erb</p>
+<h1><%= @video.title %></h1>
+
+<p><%= raw(@video.embed(@video.url))%></p>
+<p>Description: <%= @video.description %></p>
+<p> Posted By: <%= @video.user.name %></p>
+
+<% @video.video_comments.each do |comment| %>
+  <p><%= comment.text %></p>
+  - <%= comment.user.name %><br/>
+  <small>Posted at: <%= comment.created_at %></small>
+<% end %>
+<% if current_user %>
+  <% unless current_user.name == @video.user.name %>
+    <p><%= link_to "Leave a comment", new_video_video_comment_path(@video) %></p>
+  <% end %>
+<% else %>
+  <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own.</p> 
+<% end %>

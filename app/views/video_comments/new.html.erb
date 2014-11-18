@@ -1,2 +1,11 @@
-<h1>VideoComments#new</h1>
-<p>Find me in app/views/video_comments/new.html.erb</p>
+<%= link_to "Back to videos", videos_path%>
+
+<h1>Let Them Know What You Think!</h1>
+
+<%= form_for([@video, @comment]) do |f| %>
+
+  <%= f.label "Text" %> 
+  <%= f.text_area "text" %>
+  <%= f.submit "Submit"%>
+
+<%end%>

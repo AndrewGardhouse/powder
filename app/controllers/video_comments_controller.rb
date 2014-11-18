@@ -24,12 +24,12 @@ class VideoCommentsController < ApplicationController
   protected
 
     def load_video
-      @video = video.find(params[:video_id])
+      @video = Video.find(params[:video_id])
     end
 
     def comment_params
       params.require(:video_comment).permit(
-        :comment, :user_id
+        :text, :user_id
         )
     end
 end

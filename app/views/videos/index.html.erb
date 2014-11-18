@@ -2,5 +2,5 @@
 
 <% @videos.each do |video| %>
   <p><%= video.title %></p>
-  <p><%= raw(video.youtube_embed(video.url)) %></p>
+  <p><%= link_to image_tag(video.thumbnail(video.url)), video_path(video.id) %></p>
 <% end %>

@@ -1,4 +1,4 @@
-<h1>Videos#new</h1>
+<div class="form-horizontal">
 
 <%= form_for @video do |f| %>
 
@@ -13,17 +13,30 @@
     </div>
   <% end %>
 
-  <div>
-    <%= f.label "title" %><br>
-    <%= f.text_field "title" %>
+  <div class="form-group">
+    <%= f.label "Title", :class => 'col-lg-2 control-label' %>
+    <div class="col-lg-10">
+      <%= f.text_field "title", :class => 'form-control', :placeholder => 'Title' %>
+    </div>
   </div>
-  <div>
-    <%= f.label "Video Link" %><br>
-    <%= f.text_field "url" %>
+  <div class="form-group">
+    <%= f.label "URL", :class => 'col-lg-2 control-label' %>
+    <div class="col-lg-10">
+      <%= f.text_field "url", :class => 'form-control', :placeholder => 'URL' %>
+    </div>
   </div>
-  <div>
-    <%= f.label "Description" %><br>
-    <%= f.text_area "description" %>
+  <div class="form-group">
+    <%= f.label "Description", :class => 'col-lg-2 control-label' %>
+    <div class="col-lg-10">
+      <%= f.text_area "description", :class => 'form-control', :placeholder => 'Description' %>
+    </div>
   </div>
-  <div><%= f.submit "Submit" %></div>
+  <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      <button class="btn btn-default">Cancel</button>
+        <%= f.submit "Submit", :class => 'btn btn-primary' %>
+    </div>
+  </div>
 <% end %>
+
+</div>
