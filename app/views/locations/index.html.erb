@@ -6,13 +6,12 @@
   <% @locations.each do |location| %>
     <li class="list-group-item">
       <div class="row">
-        <div class="col-xs-6">
+        <div class="col-xs-8">
           <%= link_to location.title, location_path(location) %><br/>
           <%= location.description %>
         </div>
-        <div class="col-xs-2">Votes: <%= location.upvote %></div>
-        <div class="col-xs-2">Views</div>
-        <div class="col-xs-2">Answers</div>
+        <div class="col-xs-2">Upvotes: <%= location.upvote %></div>
+        <div class="col-xs-2">Average Review: <%= location.vote_average %></div>
       </div>
     </li>
   <% end %>
