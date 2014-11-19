@@ -3,18 +3,27 @@
 
 <div class="list-group container-fluid">
   <div>
-    <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTW_-WEtkm0dNjTiOMMcDQjOsrdM0dFnjvmGIegb4Eu40szUHYoJA" class="img-circle">
+    <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTW_-WEtkm0dNjTiOMMcDQjOsrdM0dFnjvmGIegb4Eu40szUHYoJA" class="img-thumbnail">
   </div><br>
 
-  <p><%= link_to "Upload Photos", new_photo_path, class: "btn btn-success" %></p>
-  <p><%= link_to "Upload Video", new_video_path, class: "btn btn-success" %></p>
+  <div class="row">
+    <div class="col-lg-2">
+      <p><%= link_to "Upload Photos", new_photo_path, class: "btn btn-success" %></p>
+    </div>
+    <div class="col-lg-1">
+      <p><%= link_to "Upload Video", new_video_path, class: "btn btn-success" %></p>
+    </div>
+  </div>
 
   <form class="form-inline" role="form">
     <div>
-      <p><strong>Current email: </strong><%= @user.email %>/p>
+      <P><strong>Update Account</strong><p>
+    </div>
+    <div>
+      <p><strong>Current email: </strong><%= @user.email %></p>
     <div>
     <div class="form-group">
-        <input class="form-control" type="text" placeholder="Update email" />
+        <input class="form-control" type="text" placeholder="Email" />
     </div>
     <div class="form-group">
         <button class="btn btn-default">Submit</button>
