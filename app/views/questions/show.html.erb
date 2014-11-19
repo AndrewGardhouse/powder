@@ -29,9 +29,9 @@
     <hr/>
   </div>
   <div class="well well-sm row">
-    <img src="http://lorempixel.com/48/48/people" alt="" class="img-circle pull-left" />
     <%= answer.user.try(:name) %> 
     <em><%=formatted_date(answer.created_at)%></em><br>
+    <%= answer.description %>
   </div>
     <%end%>
 </div>
