@@ -1,7 +1,13 @@
-
 <h2> <%= @location.title %> </h2>
-<%= image_tag(@location.url, size: "700") %> 
-<p><%= @location.essay %> </p>
+<hr>
+
+<div class="text-center">
+	<%= image_tag(@location.url, size: "700") %> 
+</div>
+
+<div class="text-center">
+	<blockquote><%= @location.essay %> </blockquote>
+</div>
 
 <h3>Reviews of <%= @location.title %></h3>
 <%if @comments.count > 0 %>
