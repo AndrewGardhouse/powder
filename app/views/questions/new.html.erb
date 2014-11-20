@@ -1,2 +1,27 @@
 <h1>Questions#new</h1>
 <p>Find me in app/views/questions/new.html.erb</p>
+
+<%= link_to "Back to question", question_path(@question) %>
+
+<h2>Answer <%@question.user.try(:name)%> 's question</h2>
+
+<%= form_for(@question, @answer) do |f| %>
+	<% if @answer.errors.any?%>
+		<div>
+			<%= pluralize(@answer.errors.count, "error") %>
+			prevented the review from being saved: 
+			<ul>
+				<% @answer.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<%end%>
+			</ul>
+
+	<%end%>
+
+	<%= f.label "description" %>
+	<%= f.text_area "description" %><br/>
+	<%= f.label "rate this question"%>
+	<%= f.text_area "vote"%>
+	<hr>
+	<%= f.submit "Submit" %>
+<%end%>

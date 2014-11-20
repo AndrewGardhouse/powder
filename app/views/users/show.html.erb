@@ -1,7 +1,34 @@
-<h1>User Profile</h1>
+<h1><%= @user.name %></h1>
+<hr/>
 
-<p>Name: <%= @user.name %></p>
-<p>Email: <%= @user.email %></p>
-<p><%= link_to "Upload Photos", new_photo_path %></p>
-<p><%= link_to "Upload Video", new_video_path %></p>
+<div class="list-group container-fluid">
+  <div>
+    <%= image_tag gravatar(@user.email), :class => "img-thumbnail" %>
+    <%= link_to "Upload an avatar", "https://en.gravatar.com/" %>
+  </div><br>
+
+  <div class="row">
+    <div class="col-lg-2">
+      <p><%= link_to "Upload Photos", new_photo_path, class: "btn btn-success" %></p>
+    </div>
+    <div class="col-lg-1">
+      <p><%= link_to "Upload Video", new_video_path, class: "btn btn-success" %></p>
+    </div>
+  </div>
+
+  <form class="form-inline" role="form">
+    <div>
+      <P><strong>Update Account</strong><p>
+    </div>
+    <div>
+      <p><strong>Current email: </strong><%= @user.email %></p>
+    <div>
+    <div class="form-group">
+        <input class="form-control" type="text" placeholder="Email" />
+    </div>
+    <div class="form-group">
+        <button class="btn btn-default">Submit</button>
+    </div>
+  </form>
+</div><br>
 
