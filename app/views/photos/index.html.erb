@@ -7,7 +7,9 @@
         <p><%= link_to image_tag(photo.image_url(:thumb)), photo_path(photo.id), :class => 'thumbnail img-responsive' %></p>
         <p><%= photo.title %></p><br/>
         <small><cite title="Source Title"><%= photo.user.name %></cite></small>
-        <span class="label label-primary">Air</span>
+        <% photo.tag_list.map do |tag| %>
+          <span class="label label-primary"><%= raw link_to tag, tag_path(tag) %></span>
+        <% end %>
       </a>
     </div>
   <% end %> 
