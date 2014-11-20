@@ -23,19 +23,51 @@
 </div>
 
 <ul class="list-group container-fluid">
+  <li class="active list-group-item">
+    <div class="row">
+      <div class="col-xs-1">
+        Tag
+      </div>
+      <div class="col-xs-5">
+        Question
+      </div>   
+      <div class="col-xs-2">
+        Date
+      </div> 
+      <div class="col-xs-2">
+        User
+      </div>  
+      <div class="col-xs-1 text-center">
+        Votes
+      </div>
+      <div class="col-xs-1 text-center">
+        Answers
+      </div>
+  </li>
   <li class="list-group-item">
     <% @questions.each do |question|%>
-    <div class="row">
-          <%= formatted_date(question.created_at)%>
+      <div class="row">
+        <div class="col-xs-1">
+          <span class="label label-default"><%= question.tags %></span>
+        </div>
+        <div class="col-xs-5">
           <%=link_to question.title, question_path(question.id) %>
-        
+        </div>
         <div class="col-xs-2">
-          <%= question.tags %>
+          <%= formatted_date(question.created_at)%>
         </div>
         <div class="col-xs-2">
           <%= question.user.try(:name)%>
         </div>
-    </div>
-    <hr>
-<%end%>
+        <div class="col-xs-1 text-center">
+          <%= question.vote_average %>
+        </div>
+        <div class="col-xs-1 text-center">
+          <%= question.answers.count %>
+        </div>
+      </div>
+      <hr>
+    <%end%>
+  </li>  
+</ul>
     
