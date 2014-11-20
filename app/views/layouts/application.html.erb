@@ -29,9 +29,7 @@
         
         <li><%=link_to "About", locations_path %></li>
 
-          <% if current_user %><li><%=link_to "#{current_user.name}", user_path(current_user.id) %></li><%end%>
-          <li><%=link_to "About", locations_path %></li>
-          <% if current_user %><li><%=link_to "#{current_user.name}'s Profile", user_path(current_user.id) %></li>
+          <% if current_user %><li><%=link_to "#{current_user.name}", user_path(current_user.id) %></li>
           <%end%>
         </ul>
 <!-- 
