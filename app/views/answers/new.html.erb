@@ -1,7 +1,10 @@
-<h1>Answer#new</h1>
-<p>Find me in app/views/answer/new.html.erb</p>
+<h1>Answer</h1>
+<hr/>
 
-<%= form_for([@question, @answer]) do |f| %>
+<div class="form-horizontal">
+  <fieldset>
+	<%= form_for([@question, @answer]) do |f| %>
+	
 	<% if @answer.errors.any?%>
 		<div>
 			<%= pluralize(@answer.errors.count, "error") %>
@@ -13,13 +16,28 @@
 			</ul>
 
 	<%end%>
-	
-	<%= f.label "description" %>
-	<%= f.text_area "description"%>
-	<%= f.label "rate this question"%>
-	<%= f.text_area "votes"%> 
-	<%=f.submit "Submit"%>
 
-<% end %>
+  <div class="form-group">
+    <div class="col-lg-offset-4 col-lg-4">
+      <%= f.text_area "description", :class => 'form-control', :placeholder => 'Description'  %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-4 col-lg-4">
+      <%= f.text_area "votes", :class => 'form-control', :placeholder => 'Rate this question'  %>
+    </div>
+	</div>
+  <div class="form-group">
+    <div class="col-lg-6 col-lg-offset-2 text-right">
+      <button class="btn btn-default">Cancel</button>
+      <%= f.submit "Submit", :class => 'btn btn-primary' %>
+    </div>
+  </div>
+
+  </fieldset>
+  <%end%>
+</div>
+
+
 
 

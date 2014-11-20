@@ -20,25 +20,18 @@
     <hr/>
   </div>
   <div class="row">  
-    <%= link_to "Answer!", new_question_answer_path(@question), :class => "btn btn-primary" %>
+    <%= link_to "Answer", new_question_answer_path(@question), :class => "btn btn-primary" %>
   </div>
   <br>
+  <% @answers.each do |answer|%>
   <div class="well well-sm row">
-    <% @answers.each do |answer|%>
-      <%= image_tag gravatar(answer.user.email), :class => "img-circle pull-left" %>
+      <!-- Here I am passing the size I want (number 48), together with email -->
+      <%= image_tag gravatar(answer.user.email, 48), :class => "img-circle pull-left" %>
       <%= answer.user.try(:name) %> 
       <em>on <%=formatted_date(answer.created_at)%></em><br>
       <%= answer.description %>
-    <%end%>
   </div>
+  <%end%>
 </div>
 
-
-<div class="comments container">
-  <div class="well well-sm row">
-    <img src="http://lorempixel.com/48/48/people" alt="" class="img-circle pull-left" />
-    <a href="#">ggoulart</a> <em>on March 5th, 2014</em><br>
-    Whistler up at the peak!
-  </div>
-</div>
 
