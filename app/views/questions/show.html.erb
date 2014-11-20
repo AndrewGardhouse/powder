@@ -1,44 +1,37 @@
 <h1>Q &amp; A</h1>
 <hr/>
 
-<ul class="list-group container-fluid">
-  <li class="list-group-item">
-    <div class="row">
-        <div class="col-xs-2">
-          <%= @question.title %>
-        </div>
-        <div class="col-xs-2">
-          <%=@question.tags%>
-        </div>
-        <div class="col-xs-2">
-          <%=@question.user.try(:name)%>
-        </div>
-        <div class="col-xs-2">
-          <%= formatted_date(@question.created_at)%>
-        </div>
-    </div>
-    <div>
-      <%=@question.description %>
-    </div>
-  </li>
-</ul>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h2><strong><%= @question.title %></strong></h2>
+    <hr/>
+    <p><%=@question.description %></p>
+    <p><strong><small><%=@question.user.try(:name)%></small></strong></p>
+    <p><small><%= formatted_date(@question.created_at)%></small></p>
+    <span class="label label-primary"><%= @question.tags %></span>
+  </div>
+</div>
+
+
 
 <div class="comments container">
   <div class="row">
-    <% @answers.each do |answer|%>
+    <h3>Answers</h3>
     <hr/>
   </div>
+  <div class="row">  
+    <%= link_to "Answer", new_question_answer_path(@question), :class => "btn btn-primary" %>
+  </div>
+  <br>
+  <% @answers.each do |answer|%>
   <div class="well well-sm row">
+    <!-- Here I am passing the size I want (number 48), together with email -->
+    <%= image_tag gravatar(answer.user.email, 48), :class => "img-circle pull-left" %>
     <%= answer.user.try(:name) %> 
-    <em><%=formatted_date(answer.created_at)%></em><br>
+    <em>on <%=formatted_date(answer.created_at)%></em><br>
     <%= answer.description %>
   </div>
-    <%end%>
+  <%end%>
 </div>
 
-<div class="list-group container-fluid">
 
-  <%= link_to "Answer this question!", new_question_answer_path(@question) %>
-
-        
-</div>
