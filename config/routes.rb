@@ -8,8 +8,6 @@ Rails.application.routes.draw do
     resources :photo_comments, only: [:new, :create, :destroy]
   end
 
-  get 'tags/:tag', to: 'photos#index', as: :tag
-
   resources :locations do
     resources :location_comments, only: [:new, :create, :destroy]
     get :upvote
@@ -25,7 +23,8 @@ Rails.application.routes.draw do
 
   resources :bs_posts
 
-
+  get 'photo_tags/:tag', to: 'photos#index', as: :photo_tag
+  get 'video_tags/:tag', to: 'videos#index', as: :video_tag
 
   root to: 'videos#index'
 

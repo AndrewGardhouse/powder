@@ -1,16 +1,25 @@
 <h1>Photos</h1>
 <hr/>
 
+<div id="tag_cloud">
+  <% tag_cloud Photo.tag_counts, %w{s m l} do |tag, css_class| %>
+    <%= link_to tag.name, photo_tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
 <div class="row">
   <% @photos.each do |photo| %>
     <div class="col-lg-2 col-sm-3 col-xs-4">
+        
         <p><%= link_to image_tag(photo.image_url(:thumb)), photo_path(photo.id), :class => 'thumbnail img-responsive' %></p>
         <p><%= photo.title %></p><br/>
-        <small><cite title="Source Title"><%= photo.user.name %></cite></small>
+
+        <small><cite title="Source Title"><%= photo.user.name %></cite></small><br/>
+
         <% photo.tag_list.map do |tag| %>
-          <span class="label label-primary"><%= raw link_to tag, tag_path(tag) %></span>
+          <span class="label label-primary"><%= raw link_to tag, photo_tag_path(tag) %></span>
         <% end %>
-      </a>
+      
     </div>
   <% end %> 
 </div>
