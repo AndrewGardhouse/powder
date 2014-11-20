@@ -25,11 +25,11 @@
   <br>
   <% @answers.each do |answer|%>
   <div class="well well-sm row">
-      <!-- Here I am passing the size I want (number 48), together with email -->
-      <%= image_tag gravatar(answer.user.email, 48), :class => "img-circle pull-left" %>
-      <%= answer.user.try(:name) %> 
-      <em>on <%=formatted_date(answer.created_at)%></em><br>
-      <%= answer.description %>
+    <!-- Here I am passing the size I want (number 48), together with email -->
+    <%= image_tag gravatar(answer.user.email, 48), :class => "img-circle pull-left" %>
+    <%= answer.user.try(:name) %> 
+    <em>on <%=formatted_date(answer.created_at)%></em><br>
+    <%= answer.description %>
   </div>
   <%end%>
 </div>
