@@ -11,47 +11,6 @@
 			<%= @location.essay %> 
 	  </div>
 	</div>
-
-	<div class="comments container">
-		<div class="row">
-			<h3>Reviews of <%= @location.title %></h3>
-				<hr/>
-			<%if @comments.count > 0 %>
-				<p><%= @location.vote_average%>/10</p>
-			<%end%>
-		</div>
-	</div>
-
-	<div class="comments container">
-	  <div class="well well-sm row">
-	    <img src="http://lorempixel.com/48/48/people" alt="" class="img-circle pull-left" />
-	    <a href="#">kchalk</a> <em>on June 9th, 2014</em><br>
-	    Up at the peak!
-	  </div>
-	</div>
-
-	<div>
-		<% if current_user%>
-			<%= link_to "Write a review!", new_location_location_comment_path(@location) %>
-		<%else%>
-			Log in to write a review!
-		<%end%>
-	</div>
-
-	<div>
-		<%= link_to "upvote", location_upvote_path(@location.id) %>
-			<% @comments.each do |comment| %>
-			<%= comment.comment %>
-			<%= comment.vote %> <br/>
-				<%if comment.user %>
-					<p style="color:blue;">	<%= comment.user.name%> </p>
-				<%end%>
-				<% if current_user && current_user.admin %>
-					<%= link_to "DESTRUCTION", location_location_comment_path(@location, comment), method: :delete, comfirm: "Are you sure?" %><br/>
-				<%end%>
-		<%end%>
-	</div>
-
 	<ul class="pager">
 		<li>
 			<%= link_to "All mountains", locations_path %> <br/>

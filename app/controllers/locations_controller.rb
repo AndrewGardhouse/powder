@@ -9,7 +9,6 @@ class LocationsController < ApplicationController
 
   def show
   	@location = Location.find(params[:id])
-    @comments = @location.location_comments.all
   end
 
   def upvote
