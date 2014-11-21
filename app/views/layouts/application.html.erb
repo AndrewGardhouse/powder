@@ -27,8 +27,6 @@
           <li><%=link_to "News", locations_path %></li>
           <li><%=link_to "Events", locations_path %></li>
         
-        <li><%=link_to "About", locations_path %></li>
-
           <% if current_user %><li><%=link_to "#{current_user.name}", user_path(current_user.id) %></li>
           <%end%>
         </ul>
@@ -45,19 +43,13 @@
     <%= msg %>
     <%end%>
   <div class="container">
-<!-- 
-    <div class="page-header" id="banner">
-      <div class="row">
-        <div class="col-lg-8 col-md-7 col-sm-6">
-          <h1>Powder</h1>
-          <p class="lead">Snowboarding Community</p>
-        </div>
-      </div>
-    </div>
- -->
     <%= yield %>
-    <%= render 'layouts/footer' %>
+    <hr>
+    <br>
   </div>
+  <footer>
+    <%= render 'layouts/footer' %>
+  </footer>
 </body>
 </html>
 
