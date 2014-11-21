@@ -18,8 +18,12 @@ class VideosController < ApplicationController
   end
 
   def index
-    @videos = Video.all
-  end
+    if params[:tag]
+      @videos = Video.tagged_with(params[:tag])
+    else
+      @videos = Video.all
+    end
+  end 
 
   def show
     @video = Video.find(params[:id])
@@ -29,7 +33,7 @@ class VideosController < ApplicationController
 
     def video_params
       params.require(:video).permit(
-        :title, :description, :url, :user_id
+        :title, :description, :url, :user_id, :tag_list
       )
     end
 end

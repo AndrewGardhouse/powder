@@ -1,13 +1,23 @@
 <h1>Videos</h1>
 <hr/>
 
+<div id="tag_cloud">
+  <%= link_to "all", videos_path %>
+  <% tag_cloud Video.tag_counts, %w{s m l} do |tag, css_class| %>
+    <%= link_to tag.name, video_tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
 <div class="row">
   <% @videos.each do |video| %>
     <div class="col-lg-2 col-sm-3 col-xs-4">
       <p><%= link_to image_tag(video.thumbnail(video.url)), video_path(video.id), :class => 'thumbnail img-responsive' %></p>
       <p><%= video.title %></p>
-      <small><cite title="Source Title"><%= video.user.name %></cite></small>
-      <span class="label label-primary">Air</span>
+      <small><cite title="Source Title"><%= video.user.name %></cite></small><br/>
+      
+      <% video.tag_list.map do |tag| %>
+        <span class="label label-primary"><%= raw link_to tag, video_tag_path(tag) %></span>
+      <% end %>
     </div>
   <% end %>
 </div>

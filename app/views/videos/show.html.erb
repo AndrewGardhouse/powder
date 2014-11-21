@@ -7,9 +7,11 @@
 
 <div>
   <p><%= @video.description %></p>
-  <small><cite title="Source Title"> <%= @video.user.name %></cite></small>
-  <span class="label label-primary">Snowboard</span>
-  <small><p>Added: <%= @video.created_at %></p></small>
+  <small><cite title="Source Title"> Posted by:  <%= @video.user.name %></cite></small>
+  <small><p>Added: <%= formatted_date(@video.created_at) %></p></small>
+    <% @video.tag_list.each do |tag| %>
+    <span class="label label-primary"><%= tag %></span>
+  <% end %>
 </div>
 
 <div class="comments container">
@@ -21,7 +23,7 @@
   <% @video.video_comments.each do |comment| %>
     <div class="well well-sm row">
       <img src="http://lorempixel.com/48/48/people" alt="" class="img-circle pull-left" />
-      <a href="#"><%= comment.user.name %></a> <em><%= comment.created_at %></em><br>
+      <a href="#"><%= comment.user.name %></a> <em><%= formatted_date(comment.created_at) %></em><br>
       <%= comment.text %>
     </div>
   <% end %>
