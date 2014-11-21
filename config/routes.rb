@@ -21,7 +21,10 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  resources :bs_posts
+  resources :bs_posts, only: [:new, :create, :show, :destroy]
+  
+  get 'posts' => 'bs_posts#index'
+  get 'posts/:type' => 'bs_posts#index'
 
   root to: 'videos#index'
 

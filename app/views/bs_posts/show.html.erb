@@ -1,2 +1,11 @@
-<h1>BsPostss#show</h1>
-<p>Find me in app/views/bs_postss/show.html.erb</p>
+<p>
+<%= @bs_post.title %>
+<%= @bs_post.description %>
+<%= @bs_post.type %>
+<%= image_tag(@bs_post.image_url(:thumb))%>
+<%= @bs_post.cost %>
+<a href="mailto:<%= @bs_post.user.try(:email)%>"> </a> 
+<%if @current_user_id == @bs_post.user_id %>
+	<%= link_to "Destroy!", bs_post_path(@bs_post), method: :delete, confirm: "You sure?" %>
+<%end%>
+</p>

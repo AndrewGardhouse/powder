@@ -1,26 +1,31 @@
 <h1>Classifieds </h1> 
 <hr/>
 <%= link_to "Post something!", new_bs_post_path %>
-
 <div class="btn-group btn-group-justified">
-  <a href="#" class="btn btn-default active">All</a>
-  <a href="#" class="btn btn-default">Boards<span class="badge"> <%=@bs_posts.where(type: 'Board').length%></span></a>
-  <a href="#" class="btn btn-default">Bindings <span class="badge"><%=@bs_posts.where(type: 'Binding').length%></span></a>
-  <a href="#" class="btn btn-default">Boots <span class="badge"><%=@bs_posts.where(type: 'Boots').length%></span></a>
-  <a href="#" class="btn btn-default">Helmets <span class="badge"><%=@bs_posts.where(type: 'Helmet').length%></span></a>
-  <a href="#" class="btn btn-default">Goggles <span class="badge"><%=@bs_posts.where(type: 'Goggles').length%></span></a>
-  <a href="#" class="btn btn-default">Apparel <span class="badge"><%=@bs_posts.where(type: 'Apparel').length%></span></a>
+  <a href="/posts" class="btn btn-default">All</a>
+  <a href="/posts/board" class="btn btn-default" id="board">Boards<span class="badge"> <%=@bs_posts.where(type: 'Board').length%></span></a>
+  <a href="/posts/binding" class="btn btn-default" id="binding">Bindings <span class="badge"><%=@bs_posts.where(type: 'Binding').length%></span></a>
+  <a href="/posts/boots" class="btn btn-default" id="boots">Boots <span class="badge"><%=@bs_posts.where(type: 'Boots').length%></span></a>
+  <a href="/posts/helmet" class="btn btn-default" id="helmet">Helmets <span class="badge"><%=@bs_posts.where(type: 'Helmet').length%></span></a>
+  <a href="/posts/goggle" class="btn btn-default" id="goggle">Goggles <span class="badge"><%=@bs_posts.where(type: 'Goggles').length%></span></a>
+  <a href="/posts/apparel" class="btn btn-default" id="apparel">Apparel <span class="badge"><%=@bs_posts.where(type: 'Apparel').length%></span></a>
 </div>
 
+
+
 <br>
-<% @bs_posts.each do |post| %>
+
+<h2>Looking in <%= @type %></h2>
 <ul class="list-group">
-  <li class="list-group-item">
-    <%= formatted_date(post.created_at) %>
-    <%= post.title %>
-    <%= post.type %>
-    <%= image_tag(post.image_url(:smallthumb)) %>
-    <span class="badge"><%= post.cost %></span>
+  <% @bs_posts.where(type: "#{@type}".capitalize).each do |item| %>
+  <li class="list-group-item" id="classified">
+    <%= link_to item.title, bs_post_path(item.id) %>
+    <%= item.type %>
+    <%= image_tag(item.image_url(:smallthumb)) %>
+    <%= item.cost %>
+    <span class="badge">item.cost</span>
   </li>
 </ul>
 <%end%>
+
+ 
