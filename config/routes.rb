@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   get 'photo_tags/:tag', to: 'photos#index', as: :photo_tag
   get 'video_tags/:tag', to: 'videos#index', as: :video_tag
+  get 'questions_tags/:tag', to: 'questions#index', as: :question_tag
 
   root to: 'videos#index'
 

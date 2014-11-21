@@ -2,6 +2,7 @@
 <hr/>
 
 <div id="tag_cloud">
+  <%= link_to "all", photos_path %>
   <% tag_cloud Photo.tag_counts, %w{s m l} do |tag, css_class| %>
     <%= link_to tag.name, photo_tag_path(tag.name), class: css_class %>
   <% end %>

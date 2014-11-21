@@ -11,8 +11,8 @@
         <%= f.text_area :description, :class => "form-control", :placeholder => "More info"%>
       </div>
       <div class="form-group">
-        <%= f.text_area :tags, :class => "form-control", :placeholder => "Add a tag"%>
-      </div>
+        <%= f.text_area "tag_list", :class => 'form-control', :placeholder => 'Tags (Separate With Commas)'  %>
+      </div> 
       <div class="form-group">
         <div class="col-lg-6 col-lg-offset-2 text-right">
           <%= f.submit  "Submit", class: 'btn btn-primary'%>
@@ -20,6 +20,13 @@
       </div>
     <%end%>
   </div>
+</div>
+
+<div id="tag_cloud">
+  <%= link_to "all", questions_path %>
+  <% tag_cloud Question.tag_counts, %w{s m l} do |tag, css_class| %>
+    <%= link_to tag.name, question_tag_path(tag.name), class: css_class %>
+  <% end %>
 </div>
 
 <ul class="list-group container-fluid">
@@ -48,7 +55,9 @@
     <% @questions.each do |question|%>
       <div class="row">
         <div class="col-xs-1">
-          <span class="label label-default"><%= question.tags %></span>
+          <% question.tag_list.map do |tag| %>
+            <span class="label label-default"><%= raw link_to tag, question_tag_path(tag) %></span>
+          <% end %>
         </div>
         <div class="col-xs-5">
           <%=link_to question.title, question_path(question.id) %>

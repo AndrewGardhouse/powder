@@ -1,9 +1,13 @@
 class QuestionsController < ApplicationController
 
   def index
-  	@questions = Question.all
-  	@question = Question.new
-  	@question.user = current_user
+      @question = Question.new
+      @question.user = current_user
+    if params[:tag]
+      @questions = Question.tagged_with(params[:tag])
+    else
+  	  @questions = Question.all
+    end
   end
 
   def show
@@ -43,6 +47,6 @@ class QuestionsController < ApplicationController
   protected
 
   def question_params
-  	params.require(:question).permit(:title, :description, :tags, :user_id)
+  	params.require(:question).permit(:title, :description, :tag_list, :user_id)
   end
 end
