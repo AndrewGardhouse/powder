@@ -13,5 +13,3 @@ module ApplicationHelper
     return image
   end
 end
-
-
