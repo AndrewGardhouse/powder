@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   resources :bs_posts, only: [:new, :create, :show, :destroy]
   
-  get 'posts' => 'bs_posts#index'
+  get 'posts/all' => 'bs_posts#index'
   get 'posts/:type' => 'bs_posts#index'
 
   get 'photo_tags/:tag', to: 'photos#index', as: :photo_tag
