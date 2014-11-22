@@ -1,6 +1,10 @@
 <h1>Classifieds </h1> 
 <hr/>
-<%= link_to "Post something!", new_bs_post_path %>
+
+<div>
+  <%= link_to "Post", new_bs_post_path, class: "btn btn-primary" %>
+</div><br>
+
 <div class="btn-group btn-group-justified">
   <a href="/posts" class="btn btn-default">All</a>
   <a href="/posts/board" class="btn btn-default" id="board">Boards<span class="badge"> <%=@bs_posts.where(type: 'Board').length%></span></a>
@@ -11,11 +15,10 @@
   <a href="/posts/apparel" class="btn btn-default" id="apparel">Apparel <span class="badge"><%=@bs_posts.where(type: 'Apparel').length%></span></a>
 </div>
 
-
-
 <br>
 
-<h2>Looking in <%= @type %></h2>
+<h3>Looking in <%= @type %></h3>
+<hr/>
 <ul class="list-group">
   <% @bs_posts.where(type: "#{@type}".capitalize).each do |item| %>
   <li class="list-group-item" id="classified">

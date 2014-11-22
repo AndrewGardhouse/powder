@@ -25,7 +25,6 @@
           <li><%=link_to "Mountains", locations_path %></li>
           <li><%=link_to "Classifieds", posts_path %></li>
           <li><%=link_to "News", locations_path %></li>
-          <li><%=link_to "Events", locations_path %></li>
         
           <% if current_user %><li><%=link_to "#{current_user.name}", user_path(current_user.id) %></li>
           <%end%>
