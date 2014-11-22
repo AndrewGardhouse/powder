@@ -2,7 +2,7 @@
 <hr/>
 <%= link_to "Post something!", new_bs_post_path %>
 <div class="btn-group btn-group-justified">
-  <a href="/posts" class="btn btn-default">All</a>
+  <a href="/posts/all" class="btn btn-default" id="all">All</a>
   <a href="/posts/board" class="btn btn-default" id="board">Boards<span class="badge"> <%=@bs_posts.where(type: 'Board').length%></span></a>
   <a href="/posts/binding" class="btn btn-default" id="binding">Bindings <span class="badge"><%=@bs_posts.where(type: 'Binding').length%></span></a>
   <a href="/posts/boots" class="btn btn-default" id="boots">Boots <span class="badge"><%=@bs_posts.where(type: 'Boots').length%></span></a>
@@ -14,18 +14,32 @@
 
 
 <br>
-
-<h2>Looking in <%= @type %></h2>
-<ul class="list-group">
-  <% @bs_posts.where(type: "#{@type}".capitalize).each do |item| %>
-  <li class="list-group-item" id="classified">
-    <%= link_to item.title, bs_post_path(item.id) %>
-    <%= item.type %>
-    <%= image_tag(item.image_url(:smallthumb)) %>
-    <%= item.cost %>
-    <span class="badge">item.cost</span>
-  </li>
-</ul>
+<%if @type != "all" %>
+  <h2>Looking in <%= @type %></h2>
+  <ul class="list-group">
+    <% @bs_posts.where(type: "#{@type}".capitalize).each do |item| %>
+    <li class="list-group-item" id="classified">
+      <%= link_to item.title, bs_post_path(item.id) %>
+      <%= item.type %>
+      <%= image_tag(item.image_url(:smallthumb)) %>
+      <%= item.cost %>
+      <span class="badge">item.cost</span>
+    </li>
+  </ul>
+  <%end%>
+<%else%>
+  <h2>Looking in All </h2>
+  <ul class="list-group">
+    <% @bs_posts.each do |item|%>
+    <li class="list-group-item" id="classified">
+      <%= link_to item.title, bs_post_path(item.id) %>
+      <%= item.type %>
+      <%= image_tag(item.image_url(:smallthumb)) %>
+      <%= item.cost %>
+      <span class="badge">item.cost</span>
+    </li>
+  </ul>
+  <%end%>
 <%end%>
 
  
