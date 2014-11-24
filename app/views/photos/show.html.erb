@@ -7,7 +7,8 @@
 <br/>
 <div>
   <p><%= @photo.description %></p>
-  <small><cite title="Source Title">Posted by: <%= @photo.user.name %></cite></small><br/>
+  <cite title="Source Title">Posted by: <%= @photo.user.name %></cite><br/>
+  <small><em>on <%=formatted_date(@photo.created_at)%></em></small><br>
   <% @photo.tag_list.each do |tag| %>
     <span class="label label-primary"><%= tag %></span>
   <% end %>

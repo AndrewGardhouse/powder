@@ -2,22 +2,24 @@
 <hr/>
 
 <div class="row">
-
   <div class="col-sm-3">
-  <%= image_tag(@bs_post.image_url(:thumb))%>
+      <%= image_tag(@bs_post.image_url(:thumb))%>
   </div>
 
-  <div class="well col-sm-3">
-    <%= @bs_post.description %>
-    <%= @bs_post.type %>
-    <%= @bs_post.cost %>
+  <div class="col-sm-9">
+    <p><%= @bs_post.description %><br/>
+    $<%= @bs_post.cost %><br/>
+    <%= mail_to @bs_post.user.email %></p>
+
+    <%if @current_user_id == @bs_post.user_id %>
+      <%= link_to "Delete", bs_post_path(@bs_post), method: :delete, confirm: "You sure?", class: "btn btn-default" %>
+    <%end%>
   </div>
 </div>
 
-<a href="mailto:<%= @bs_post.user.try(:email)%>"> </a> 
-<div class="col-sm-3">
-  <%if @current_user_id == @bs_post.user_id %>
-  	<%= link_to "Delete", bs_post_path(@bs_post), method: :delete, confirm: "You sure?", class: "btn btn-default" %>
-  <%end%>
-</div>
+<ul class="pager">
+  <li>
+    <%= link_to "All classifieds", posts_all_path %> <br/>
+  </li>
+</ul>
 
