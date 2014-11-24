@@ -14,23 +14,21 @@
   <% end %>
 </div>
 
-<div class="comments container">
-  <div class="row">
-    <h3>Comments</h3>
-    <hr/>
-  </div>
+<% if current_user %>
+  <%= link_to "Comment", new_video_video_comment_path(@video), :class => "btn btn-primary pull-right" %>
+<% else %>
+  <%= link_to "Log in", new_session_path, :class => "btn btn-primary pull-right" %>
+<% end %>
+<h3>Comments</h3>
+<hr/>
 
-  <% @video.video_comments.each do |comment| %>
-    <div class="well well-sm row">
-      <img src="http://lorempixel.com/48/48/people" alt="" class="img-circle pull-left" />
-      <a href="#"><%= comment.user.name %></a> <em><%= formatted_date(comment.created_at) %></em><br>
-      <%= comment.text %>
+<div class="row comments container">
+  <% @video.video_comments.each do |comment|%>
+    <div class="col-sm-12 well well-sm">
+      <%= image_tag gravatar(comment.user.email, 48), :class => "img-circle pull-left" %>
+      <%= comment.user.try(:name) %> 
+      <em>on <%=formatted_date(comment.created_at)%></em><br>
+      <%= comment.text%>
     </div>
-  <% end %>
-    <% unless current_user.name == @video.user.name %>
-      <p><%= link_to "Leave a comment", new_video_video_comment_path(@video) %></p>
-    <% end %>
-  <% unless current_user%>
-    <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own.</p> 
-  <% end %>
+  <%end%>
 </div>

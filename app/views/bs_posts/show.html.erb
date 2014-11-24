@@ -1,11 +1,23 @@
-<p>
-<%= @bs_post.title %>
-<%= @bs_post.description %>
-<%= @bs_post.type %>
-<%= image_tag(@bs_post.image_url(:thumb))%>
-<%= @bs_post.cost %>
+<h1><%= @bs_post.title %></h1>
+<hr/>
+
+<div class="row">
+
+  <div class="col-sm-3">
+  <%= image_tag(@bs_post.image_url(:thumb))%>
+  </div>
+
+  <div class="well col-sm-3">
+    <%= @bs_post.description %>
+    <%= @bs_post.type %>
+    <%= @bs_post.cost %>
+  </div>
+</div>
+
 <a href="mailto:<%= @bs_post.user.try(:email)%>"> </a> 
-<%if @current_user_id == @bs_post.user_id %>
-	<%= link_to "Destroy!", bs_post_path(@bs_post), method: :delete, confirm: "You sure?" %>
-<%end%>
-</p>
+<div class="col-sm-3">
+  <%if @current_user_id == @bs_post.user_id %>
+  	<%= link_to "Delete", bs_post_path(@bs_post), method: :delete, confirm: "You sure?", class: "btn btn-default" %>
+  <%end%>
+</div>
+

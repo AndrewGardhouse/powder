@@ -1,52 +1,17 @@
 <h1><%= @user.name %></h1>
 <hr/>
 
-<div class="list-group">
-  <div class="row">
+<div class="row">
 
-      <div class="col-sm-3">
-        <%= image_tag gravatar(@user.email, 250), :class => "img-thumbnail" %>
-      </div>
-
-      <div class="col-sm-9">
-
-
-        <div class="row">
-          <div class="row">
-            <div class="col-sm-2">
-              <%= link_to "Upload avatar", "https://en.gravatar.com/", class: "btn btn-success"%>
-            </div>
-            <div class="col-sm-2">
-              <p><%= link_to "Upload Photos", new_photo_path, class: "btn btn-success" %></p>
-            </div>
-            <div class="col-sm-8">
-              <p><%= link_to "Upload Video", new_video_path, class: "btn btn-success" %></p>
-            </div>
-          </div>
-         </div>
-
-        <div class="row">
-          <form class="form-inline" role="form">
-            <div class="form-group">
-              <h4><strong>Update Account</strong><h4>
-            </div>
-            <div >
-              <p><strong>Current: </strong><%= @user.email %></p>
-            <div>
-            <div class="form-group">
-                <input class="form-control" type="text" placeholder="Email" />
-            </div>
-            <div class="form-group">
-                <button class="btn btn-default">Submit</button>
-            </div>
-          </form>
-        </div>
-
+  <div class="col-sm-3">
+    <%= link_to "Edit Gravatar", "https://en.gravatar.com/", target: "_blank", class: "btn btn-default", style: "position:absolute;right:1.5em;bottom:.35em;opacity:.75;" %>
+    <%= image_tag gravatar(@user.email, 250), :class => "img-thumbnail" %>
   </div>
 
-
-
-  </div>   <!-- /.row -->
-</div> <!-- /.container -->
-
-
+  <form class="form-inline" role="form">
+      <h4><strong>Update Email</strong></h4>
+      <p><strong>Current:</strong> <%= @user.email %></p>
+      <input class="form-control" type="text" placeholder="Email" />
+      <button class="btn btn-default">Submit</button>
+  </form>
+</div>

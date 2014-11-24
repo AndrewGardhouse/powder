@@ -21,7 +21,7 @@ class BsPostsController < ApplicationController
     @bs_post.user_id = current_user.id
 
   	if @bs_post.save
-  		redirect_to posts_path
+  		redirect_to posts_all_path
   	else
   		render :new
   		Flash.now[:alert] = "Your post didnt work!"
