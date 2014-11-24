@@ -12,4 +12,10 @@ module ApplicationHelper
 
     return image
   end
+
+  def is_active(path)
+    # "active" if current_page?(path)
+    start = Regexp.new(path)
+    "active" if start.match(request.url)
+  end
 end

@@ -1,17 +1,27 @@
 <h1>Mountains</h1>
 <hr/>
 
-<div class="list-group container-fluid">
-  <ul class="list-group container-fluid">
-  <% @locations.each do |location| %>
-    <li class="list-group-item">
-      <div class="row">
-        <div class="col-xs-8">
-          <%= link_to location.title, location_path(location) %><br/>
-          <%= location.description %>
-        </div>
+<ul class="list-group">
+<% @locations.each do |location| %>
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-xs-8">
+        <%= link_to location.title, location_path(location) %><br/>
+        <%= location.description %>
       </div>
-    </li>
-  <% end %>
+    </div>
+  </li>
+<% end %>
+</ul>
+
+<div class="text-center">
+  <ul class="pagination">
+    <li class="disabled"><a href="#">«</a></li>
+    <li class="active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">»</a></li>
   </ul>
 </div>

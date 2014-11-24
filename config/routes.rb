@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :home, only: [:new, :create, :destroy]
+
   resources :videos do
     resources :video_comments, only: [:new, :create, :destroy]
   end
@@ -30,7 +32,7 @@ Rails.application.routes.draw do
   get 'video_tags/:tag', to: 'videos#index', as: :video_tag
   get 'questions_tags/:tag', to: 'questions#index', as: :question_tag
 
-  root to: 'videos#index'
+  root to: 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

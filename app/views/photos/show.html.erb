@@ -4,7 +4,7 @@
 <div class="text-center">
   <%= image_tag @photo.image_url, :class => 'img-thumbnail' %>
 </div>
-
+<br/>
 <div>
   <p><%= @photo.description %></p>
   <small><cite title="Source Title">Posted by: <%= @photo.user.name %></cite></small><br/>
@@ -13,22 +13,23 @@
   <% end %>
 </div>
 
-<div class="comments container">
-  <div class="row">
-    <h3>Comments</h3>
-    <hr/>
+<% if current_user %>
+  <%= link_to "Comment", new_photo_photo_comment_path(@photo), :class => "btn btn-primary pull-right" %>
+<% else %>
+  <%= link_to "Log in", new_session_path, :class => "btn btn-primary pull-right" %>
+<% end %>
+<h3>Comments</h3>
+<hr/>
+
+<div class="row comments container">
+  <% @photo.photo_comments.each do |comment|%>
+  <div class="col-sm-12 well well-sm">
+    <%= image_tag gravatar(comment.user.email, 48), :class => "img-circle pull-left" %>
+    <%= comment.user.try(:name) %> 
+    <em>on <%=formatted_date(comment.created_at)%></em><br>
+    <%= comment.comment %>
   </div>
-  <% @photo.photo_comments.each do |comment| %>
-    <div class="well well-sm row">
-      <img src="http://lorempixel.com/48/48/people" alt="" class="img-circle pull-left" />
-      <a href="#"><%= comment.user.name %></a> <em><%= comment.created_at %></em><br>
-      <%= comment.comment %>
-    </div>
-  <% end %>
-    <% unless current_user.name == @photo.user.name %>
-      <p><%= link_to "Leave a comment", new_photo_photo_comment_path(@photo) %></p>
-    <% end %>
-  <% unless current_user %>
-    <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own.</p> 
-  <% end %>
+  <%end%>
+ 
 </div>
+

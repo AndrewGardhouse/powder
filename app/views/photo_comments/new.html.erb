@@ -1,11 +1,26 @@
-<%= link_to "Back to photos", photos_path%>
+<h1>Comment</h1>
+<hr/>
 
-<h1>Let Them Know What You Think!</h1>
+<div class="form-horizontal">
+  <fieldset>
+  <%= form_for([@photo, @comment]) do |f| %>
 
-<%= form_for([@photo, @comment]) do |f| %>
+  <div class="form-group">
+    <div class="col-lg-offset-4 col-lg-4">
+      <%= f.text_area "comment", :class => 'form-control', :placeholder => 'Comment' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-6 col-lg-offset-2 text-right">
+      <%= f.submit "Submit", :class => 'btn btn-primary' %>
+    </div>
+  </div>
+  <%end%>
+  </fieldset>
+</div>
 
-  <%= f.label "Comment" %> 
-  <%= f.text_area "comment"%>
-  <%= f.submit "Submit"%>
-
-<%end%>
+<ul class="pager">
+  <li>
+    <%= link_to "All photos", photos_path %> <br/>
+  </li>
+ </ul>

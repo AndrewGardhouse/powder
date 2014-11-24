@@ -10,7 +10,7 @@
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
-        <a href="../" class="navbar-brand"><em>Powder</em></a>
+        <a href="/" class="navbar-brand"><em>Powder</em></a>
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -18,36 +18,45 @@
         </button>
       </div>
       <div class="navbar-collapse collapse" id="navbar-main">
-        <ul class="nav navbar-nav navbar-right">
-          <li><%=link_to "Q & A", questions_path %></li>
-          <li><%=link_to "Photos", photos_path %></li>
-          <li><%=link_to "Videos", videos_path %></li>
-          <li><%=link_to "Mountains", locations_path %></li>
-          <li><%=link_to "Classifieds", posts_all_path %></li>
-          <li><%=link_to "News", locations_path %></li>
+        <ul class="nav nav-pills navbar-right">
+          <li class="<%= is_active(questions_path) %>"><%=link_to "Q & A", questions_path %></li>
+          <li class="<%= is_active(photos_path) %>"><%=link_to "Photos", photos_path %></li>
+          <li class="<%= is_active(videos_path) %>"><%=link_to "Videos", videos_path %></li>
+          <li class="<%= is_active(locations_path) %>"><%=link_to "Mountains", locations_path %></li>
+          <li class="<%= is_active(posts_all_path) %>"><%=link_to "Classifieds", posts_all_path %></li>
+          <li class="<%= is_active(locations_path) %>"><%=link_to "News", locations_path %></li>
         
-          <% if current_user %><li><%=link_to "#{current_user.name}", user_path(current_user.id) %></li>
+          <% if current_user %>
+            <li class="<%= is_active(user_path(current_user.id)) %>">
+              <%=link_to "#{current_user.name}", user_path(current_user.id) %>
+            </li>
+            <li>
+              <%= image_tag gravatar(current_user.email, 42), :class => "img-circle" %>
+            </li>
           <%end%>
         </ul>
-<!-- 
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a></li>
-          <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a></li>
-        </ul>
--->
       </div>
     </div>
   </div>
-    <% flash.each do |msg|%>
-    <%= msg %>
-    <%end%>
+  <%= yield(:highlight) %>
   <div class="container">
+    <% flash.each do |msg|%>
+      <div class="alert alert-dismissable alert-success">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <%= msg[1] %>
+      </div>
+    <%end%>
     <%= yield %>
     <hr>
     <br>
   </div>
-  <footer>
-    <%= render 'layouts/footer' %>
+  <footer id="footer">
+    <div class="container">
+      <a href="/" class="navbar-brand"><em>Powder</em></a>
+      <div class="text-right">
+        <%= render 'layouts/footer' %>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
