@@ -7,7 +7,7 @@
 
 	  <div class="form-group">
 	    <div class="col-lg-offset-4 col-lg-4">
-				<%= f.text_area "title", :class => 'form-control', :placeholder => 'Title' %>
+				<%= f.text_field "title", :class => 'form-control', :placeholder => 'Title' %>
 			</div>
 		</div>
 
@@ -19,14 +19,16 @@
 
 	  <div class="form-group">
 	  	<div class="col-lg-offset-4 col-lg-4">
-	  			<% type_array = ["Boots", "Binding", "Boots", "Helmet", "Goggles", "Apparel"]%>
-				<%= f.select "type", type_array.each {|type| type }, :class => 'form-control', :placeholder => 'Type' %>
+				<%= f.select("type", ["Boots", "Binding", "Boots", "Helmet", "Goggles", "Apparel"], {}, { :class => 'form-control' }) %>
 			</div>
 		</div>
 
 	  <div class="form-group">
 	  	<div class="col-lg-offset-4 col-lg-4">
-				<%= f.text_area "cost", :class => 'form-control', :placeholder => 'Cost' %>
+	  	<div class="input-group">
+				<span class="input-group-addon">$</span>
+				<span><%= f.text_field "cost", :class => 'form-control', :placeholder => 'Cost' %></span>
+			</div>
 			</div>
 		</div>
 

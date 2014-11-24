@@ -16,5 +16,19 @@
  */
 
 body {
-  padding-top: 5em;
+  padding-top: 5.8em;
+}
+
+body > .container {
+  min-height: 100%;
+}
+
+.navbar.navbar-default li {
+  padding: 1em 0;
+  /*background:#1c1c1c;*/
+}
+
+#footer {
+  color:#666;
+  background:#222;
 }

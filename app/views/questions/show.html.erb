@@ -14,24 +14,18 @@
   </div>
 </div>
 
-<div class="comments container">
-  <div class="row">
-    <h3>Answers</h3>
-    <hr/>
-  </div>
-  <div class="row">  
-    <%= link_to "Answer", new_question_answer_path(@question), :class => "btn btn-primary" %>
-  </div>
-  <br>
+<%= link_to "Answer", new_question_answer_path(@question), :class => "btn btn-primary pull-right" %>
+<h3>Answers</h3>
+<hr/>
+
+<div class="row comments container">
   <% @answers.each do |answer|%>
-  <div class="well well-sm row">
-    <!-- Here I am passing the size I want (number 48), together with email -->
-    <%= image_tag gravatar(answer.user.email, 48), :class => "img-circle pull-left" %>
-    <%= answer.user.try(:name) %> 
-    <em>on <%=formatted_date(answer.created_at)%></em><br>
-    <%= answer.description %>
-  </div>
+    <div class="col-sm-12 well well-sm">
+      <!-- Here I am passing the size I want (number 48), together with email -->
+      <%= image_tag gravatar(answer.user.email, 48), :class => "img-circle pull-left" %>
+      <%= answer.user.try(:name) %> 
+      <em>on <%=formatted_date(answer.created_at)%></em><br>
+      <%= answer.description %>
+    </div>
   <%end%>
 </div>
-
-
