@@ -5,22 +5,22 @@
   <fieldset>
     <%= form_for @question do |f| %>
       <div class="form-group ">
-    		<div class="col-lg-offset-4 col-lg-4">
+    		<div class="col-sm-offset-4 col-sm-4">
         	<%= f.text_field :title, :class => "form-control", :placeholder => "Ask a question"%>
         </div>
       </div>
       <div class="form-group">
-    		<div class="col-lg-offset-4 col-lg-4">
+    		<div class="col-sm-offset-4 col-sm-4">
         	<%= f.text_area :description, :class => "form-control", :placeholder => "More info"%>
         </div>
       </div>
       <div class="form-group">
-    		<div class="col-lg-offset-4 col-lg-4">
+    		<div class="col-sm-offset-4 col-sm-4">
         	<%= f.text_area "tag_list", :class => 'form-control', :placeholder => 'Tags (Separate With Commas)'  %>
         </div>
       </div> 
       <div class="form-group">
-        <div class="col-lg-6 col-lg-offset-2 text-right">
+        <div class="col-sm-6 col-sm-offset-2 text-right">
           <%= f.submit  "Submit", class: 'btn btn-primary'%>
         </div>
       </div>
