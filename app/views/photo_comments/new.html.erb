@@ -6,12 +6,12 @@
   <%= form_for([@photo, @comment]) do |f| %>
 
   <div class="form-group">
-    <div class="col-lg-offset-4 col-lg-4">
+    <div class="col-sm-offset-4 col-sm-4">
       <%= f.text_area "comment", :class => 'form-control', :placeholder => 'Comment' %>
     </div>
   </div>
   <div class="form-group">
-    <div class="col-lg-6 col-lg-offset-2 text-right">
+    <div class="col-sm-6 col-sm-offset-2 text-right">
       <%= f.submit "Submit", :class => 'btn btn-primary' %>
     </div>
   </div>
