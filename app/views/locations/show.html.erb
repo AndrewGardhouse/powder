@@ -20,7 +20,7 @@
 		<div class="col-sm-6  text-right">
 			<%= image_tag(@location.url, style: "width:100%", class: "img-rounded") %> 
 		</div>
-	</div>
+	</div>	
 
 	<div class="row panel-body">
 		<% parts = @location.essay.split(' ') %> 
@@ -41,6 +41,7 @@
 			<%= link_to "All mountains", locations_path %> <br/>
 		</li>
 	</ul>
+</div>
 
 
 
