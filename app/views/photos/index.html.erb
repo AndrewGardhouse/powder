@@ -1,0 +1,41 @@
+<%= link_to "Upload Photo", new_photo_path, class: 'btn btn-primary pull-right' %>
+<h1>Photos</h1>
+<hr/>
+
+<div class="row">
+  <div class="col-sm-8">
+    <% @photos.each_with_index do |photo, index| %>
+      <% is_row_complete = (index + 1) % 4 == 0 %>
+      <% if is_row_complete %>
+        <div class="row">
+      <% end %>
+          <div class="m-photo col-sm-3">
+            <%= link_to image_tag(photo.image_url(:thumb)), photo_path(photo.id), class: "thumbnail img-responsive" %>
+            <%= photo.title %><br/>
+
+            <small><cite title="Source Title">Posted by: <%= photo.user.name %></cite></small><br/>
+
+            <% photo.tag_list.map do |tag| %>
+              <%= raw link_to tag, photo_tag_path(tag), class: "label label-primary" %>
+            <% end %>
+          </div>
+      <% if is_row_complete %>
+        </div>
+      <% end %>
+    <% end %> 
+  </div>
+  <div class="col-sm-4">
+    <div id="tag_cloud">
+      <%= link_to "all", photos_path %>
+      <% tag_cloud Photo.tag_counts, %w{s m l} do |tag, css_class| %>
+        <%= link_to tag.name, photo_tag_path(tag.name), class: css_class %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="text-center">
+  <ul class="pagination">
+    <li class="disabled"><%= will_paginate @photos %></li>
+    
+  </ul>
+</div>

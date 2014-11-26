@@ -1,0 +1,57 @@
+<h1>Ask a questions</h1>
+<hr/>
+
+<div class="form-horizontal">
+  <fieldset>
+    <%= form_for @question do |f| %>
+      <div class="form-group ">
+    		<div class="col-sm-offset-4 col-sm-4">
+        	<%= f.text_field :title, :class => "form-control", :placeholder => "Ask a question"%>
+        </div>
+      </div>
+      <div class="form-group">
+    		<div class="col-sm-offset-4 col-sm-4">
+        	<%= f.text_area :description, :class => "form-control", :placeholder => "More info"%>
+        </div>
+      </div>
+      <div class="form-group">
+    		<div class="col-sm-offset-4 col-sm-4">
+        	<%= f.text_area "tag_list", :class => 'form-control', :placeholder => 'Tags (Separate With Commas)'  %>
+        </div>
+      </div> 
+      <div class="form-group">
+        <div class="col-sm-6 col-sm-offset-2 text-right">
+          <%= f.submit  "Submit", class: 'btn btn-primary'%>
+        </div>
+      </div>
+    <%end%>
+  </fieldset>
+
+	<ul class="pager">
+		<li>
+			<%= link_to "All questions", questions_path %> <br/>		</li>
+	</ul>
+</div>
+
+<!-- <h2>Answer <#% @question.user.try(:name) %> 's question</h2>
+
+<#%= form_for(@question, @answer) do |f| %>
+	<#% if @answer.errors.any?%>
+		<div>
+			<#%= pluralize(@answer.errors.count, "error") %>
+			prevented the review from being saved: 
+			<ul>
+				<#% @answer.errors.full_messages.each do |m| %>
+				<li><#%= m %></li>
+				<#%end%>
+			</ul>
+
+	<#%end%>
+
+	<#%= f.label "description" %>
+	<#%= f.text_area "description" %><br/>
+	<#%= f.label "rate this question"%>
+	<#%= f.text_area "vote"%>
+	<hr>
+	<#%= f.submit "Submit" %>
+<#%end%>  -->

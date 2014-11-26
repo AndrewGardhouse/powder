@@ -1,0 +1,49 @@
+<h1>Sign Up</h1>
+<hr/>
+
+<div class="form-horizontal">
+  <fieldset>
+  <%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+      <div>
+        <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-4">
+        <%= f.text_field "name", :class => 'form-control', :placeholder => 'Name' %>  
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-4">
+      <%= f.text_field "email", :class => 'form-control', :placeholder => 'Email' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-4">
+        <%= f.password_field "password", :class => 'form-control', :placeholder => 'Password' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-4">
+        <%= f.password_field "password_confirmation", :class => 'form-control', :placeholder => 'Confirm Password' %>
+      </div>
+    <div class="form-group">
+    </div>
+    <div class="form-group">
+      <div class="col-sm-6 col-sm-offset-2 text-right">
+        <button class="btn btn-default">Cancel</button>
+        <%= f.submit "Submit", :class => 'btn btn-primary' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <%end%>
+</div>
+

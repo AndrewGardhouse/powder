@@ -1,4 +1,43 @@
 Rails.application.routes.draw do
+
+  get 'newsposts/index'
+
+  get 'newsposts/show'
+
+  resources :home, only: [:new, :create, :destroy]
+
+  resources :videos do
+    resources :video_comments, only: [:new, :create, :destroy]
+  end
+
+  resources :photos do
+    resources :photo_comments, only: [:new, :create, :destroy]
+  end
+
+  resources :locations do
+    resources :location_comments, only: [:new, :create, :destroy]
+    get :upvote
+  end
+
+  resources :users, only: [:new, :create, :edit, :destroy, :show]
+
+  resources :questions do
+    resources :answers, only: [:new, :create, :destroy]
+  end
+
+  resources :sessions, only: [:new, :create, :destroy]
+
+  resources :bs_posts, only: [:new, :create, :show, :destroy]
+  
+  get 'posts/all' => 'bs_posts#index'
+  get 'posts/:type' => 'bs_posts#index'
+
+  get 'photo_tags/:tag', to: 'photos#index', as: :photo_tag
+  get 'video_tags/:tag', to: 'videos#index', as: :video_tag
+  get 'questions_tags/:tag', to: 'questions#index', as: :question_tag
+
+  root to: 'home#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

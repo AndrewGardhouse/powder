@@ -1,0 +1,27 @@
+<h1>Comment</h1>
+<hr/>
+
+<div class="form-horizontal">
+  <fieldset>
+  <%= form_for([@video, @comment]) do |f| %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-4">
+      <%= f.text_area "text", :class => 'form-control', :placeholder => 'Comment' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-6 col-sm-offset-2 text-right">
+      <%= f.submit "Submit", :class => 'btn btn-primary' %>
+    </div>
+  </div>
+  <%end%>
+  </fieldset>
+</div>
+
+<ul class="pager">
+  <li>
+    <%= link_to "All videos", videos_path %> <br/>
+  </li>
+ </ul>
+

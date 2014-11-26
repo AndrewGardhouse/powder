@@ -1,0 +1,43 @@
+<h1>Answer</h1>
+<hr/>
+
+<div class="form-horizontal">
+  <fieldset>
+	<%= form_for([@question, @answer]) do |f| %>
+	
+	<% if @answer.errors.any?%>
+		<div>
+			<%= pluralize(@answer.errors.count, "error") %>
+			prevented the review from being saved: 
+			<ul>
+				<% @answer.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<%end%>
+			</ul>
+
+	<%end%>
+
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-4">
+      <%= f.text_area "description", :class => 'form-control', :placeholder => 'Description'  %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-4">
+        <%= f.select("votes", ["Review", 1, 2, 3, 4, 5], {}, { :class => 'form-control' }) %>
+      </div>
+    </div>
+  <div class="form-group">
+    <div class="col-sm-6 col-sm-offset-2 text-right">
+      <button class="btn btn-default">Cancel</button>
+      <%= f.submit "Submit", :class => 'btn btn-primary' %>
+    </div>
+  </div>
+
+  </fieldset>
+  <%end%>
+</div>
+
+
+
+

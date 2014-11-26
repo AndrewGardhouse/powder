@@ -1,0 +1,11 @@
+<% content_for :highlight do %>
+  <div class="container">
+    <div class="photo-highlight-label">
+      <h2>PHOTOS</h2>
+      <%= @photo.try(:description) %>
+    </div>
+  </div>
+  <div class="photo-highlight">
+    <img src="<%= @photo.try(:image) %>"/>
+  </div>
+<% end %>

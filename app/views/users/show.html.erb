@@ -1,0 +1,17 @@
+<h1><%= @user.name %></h1>
+<hr/>
+
+<div class="row">
+
+  <div class="col-sm-3">
+    <%= link_to "Edit Gravatar", "https://en.gravatar.com/", target: "_blank", class: "btn btn-default", style: "position:absolute;right:1.5em;bottom:.35em;opacity:.75;" %>
+    <%= image_tag gravatar(@user.email, 250), :class => "img-thumbnail" %>
+  </div>
+
+  <form class="form-inline" role="form">
+      <h4><strong>Update Email</strong></h4>
+      <p><strong>Current:</strong> <%= @user.email %></p>
+      <input class="form-control" type="text" placeholder="Email" />
+      <button class="btn btn-default">Submit</button>
+  </form>
+</div>

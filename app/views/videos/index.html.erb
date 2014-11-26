@@ -1,0 +1,41 @@
+<%= link_to "Upload Video", new_video_path, class: 'btn btn-primary pull-right' %>
+<h1>Videos</h1>
+<hr/>
+
+<div class="row">
+  <div class="col-sm-8">
+    <% @videos.each_with_index do |video, index| %>
+      <% is_row_complete = (index + 1) % 4 == 0 %>
+      <% if is_row_complete %>
+        <div class="row">
+      <% end %>
+          <div class="m-video col-sm-3">
+            <%= link_to image_tag(video.thumbnail(video.url)), video_path(video.id), :class => 'thumbnail img-responsive' %>
+            <%= video.title %><br/>
+
+            <small><cite title="Source Title">Posted by: <%= video.user.name %></cite></small><br/>
+            
+            <% video.tag_list.map do |tag| %>
+              <%= raw link_to tag, video_tag_path(tag), class: "label label-primary" %>
+            <% end %>
+          </div>
+      <% if is_row_complete %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-sm-4">
+    <div id="tag_cloud">
+      <%= link_to "all", videos_path %>
+      <% tag_cloud Video.tag_counts, %w{s m l} do |tag, css_class| %>
+        <%= link_to tag.name, video_tag_path(tag.name), class: css_class %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <ul class="pagination">
+    <li class="disabled"><%= will_paginate @videos %></li>
+  </ul>
+</div>

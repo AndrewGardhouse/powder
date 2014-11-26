@@ -1,0 +1,34 @@
+<h1><%= @video.title %></h1>
+<hr/>
+
+<div class="text-center">
+  <p><%= raw(@video.embed(@video.url))%></p>
+</div>
+
+<div>
+  <p><%= @video.description %></p>
+  <small><cite title="Source Title"> Posted by:  <%= @video.user.name %></cite></small>
+  <small><p>Added: <%= formatted_date(@video.created_at) %></p></small>
+    <% @video.tag_list.each do |tag| %>
+    <span class="label label-primary"><%= tag %></span>
+  <% end %>
+</div>
+
+<% if current_user %>
+  <%= link_to "Comment", new_video_video_comment_path(@video), :class => "btn btn-primary pull-right" %>
+<% else %>
+  <%= link_to "Log in", new_session_path, :class => "btn btn-primary pull-right" %>
+<% end %>
+<h3>Comments</h3>
+<hr/>
+
+<div class="row comments container">
+  <% @video.video_comments.each do |comment|%>
+    <div class="col-sm-12 well well-sm">
+      <%= image_tag gravatar(comment.user.email, 48), :class => "img-circle pull-left" %>
+      <%= comment.user.try(:name) %> 
+      <em>on <%=formatted_date(comment.created_at)%></em><br>
+      <%= comment.text%>
+    </div>
+  <%end%>
+</div>

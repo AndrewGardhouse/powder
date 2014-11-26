@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+gem 'rmagick', require: false
+gem 'carrierwave'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
 # Use sqlite3 as the database for Active Record
@@ -16,6 +17,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -27,7 +29,14 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+gem 'pry'
+gem 'video_info'
+gem 'acts-as-taggable-on', '~> 3.4'
+gem 'json'
+gem 'nokogiri'
+gem 'will_paginate'
+gem 'pg',  group: :production
 
 # Use unicorn as the app server
 # gem 'unicorn'

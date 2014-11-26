@@ -1,0 +1,70 @@
+<%= link_to "Post Classified", new_bs_post_path, class: 'btn btn-primary pull-right' %>
+<h1>Classifieds </h1> 
+<hr/>
+
+<div class="btn-group btn-group-justified">
+  <a href="/posts/all" class="btn btn-default" id="all">
+    All
+    <span class="badge">
+      <%= @bs_posts.length %>
+    </span>
+  </a>
+  <a href="/posts/board" class="btn btn-default" id="board">
+    Boards
+    <span class="badge">
+      <%= @bs_posts.where(type: 'Board').length %>
+    </span>
+  </a>
+  <a href="/posts/binding" class="btn btn-default" id="binding">
+    Bindings
+    <span class="badge">
+      <%= @bs_posts.where(type: 'Binding').length %>
+    </span>
+  </a>
+  <a href="/posts/boots" class="btn btn-default" id="boots">
+    Boots
+    <span class="badge">
+      <%= @bs_posts.where(type: 'Boots').length %>
+    </span>
+  </a>
+  <a href="/posts/helmet" class="btn btn-default" id="helmet">
+    Helmets
+    <span class="badge">
+      <%= @bs_posts.where(type: 'Helmet').length %>
+    </span>
+  </a>
+  <a href="/posts/goggles" class="btn btn-default" id="goggle">
+    Goggles
+    <span class="badge">
+      <%= @bs_posts.where(type: 'Goggles').length %>
+    </span>
+  </a>
+  <a href="/posts/apparel" class="btn btn-default" id="apparel">
+    Apparel
+    <span class="badge">
+      <%= @bs_posts.where(type: 'Apparel').length %>
+    </span>
+  </a>
+</div>
+<br />
+<ul class="list-group">
+<% (@type.length == 0 ? @posts : @posts.where(type: "#{@type}".capitalize)).each do |item| %>
+  <li class="list-group-item clearfix">
+        <span class="badge pull-right">$<%= item.cost %></span>
+        <%= image_tag item.image_url(:smallthumb), {width: 48, height: 48, class: 'pull-left'} %>
+
+        <%= link_to item.title, bs_post_path(item.id) %>
+        <br/>
+        <small>
+          <%= @type.length == 0 ? 'in ' + item.type + ',' : '' %>
+          <%= time_ago_in_words(item.created_at) %> ago
+        </small>
+  </li>
+<% end %>
+</ul>
+
+<div class="text-center">
+  <ul class="pagination">
+    <li class="disabled"><%= will_paginate @posts %></li>
+  </ul>
+</div>

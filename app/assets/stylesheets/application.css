@@ -12,4 +12,35 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap
  */
+
+body {
+  padding-top: 4.8em;
+  background: #222!important;
+}
+
+body > .container {
+  min-height: 100%;
+  background: #fff;
+}
+
+body > .container > .btn-primary:first-child {
+  position: relative;
+  top: 1.33em;
+}
+
+
+.navbar.navbar-default li {
+  padding: 1em 0;
+  /*background:#1c1c1c;*/
+}
+
+#footer {
+  color:#666;
+  background:#222;
+}
+
+#footer .text-right {
+  padding:1em 0 0;
+}

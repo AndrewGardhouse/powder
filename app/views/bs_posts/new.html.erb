@@ -1,0 +1,51 @@
+<h1>Sell your shreddy gear!</h1>
+<hr/>
+
+<div class="form-horizontal">
+  <fieldset>
+		<%= form_for @bs_post do |f| %> 
+
+	  <div class="form-group">
+	    <div class="col-sm-offset-4 col-sm-4">
+				<%= f.text_field "title", :class => 'form-control', :placeholder => 'Title' %>
+			</div>
+		</div>
+
+	  <div class="form-group">
+	  	<div class="col-sm-offset-4 col-sm-4">
+				<%= f.text_area "description", :class => 'form-control', :placeholder => 'Description' %>
+			</div>
+		</div>
+
+	  <div class="form-group">
+	  	<div class="col-sm-offset-4 col-sm-4">
+				<%= f.select("type", ["Boots", "Binding", "Boots", "Helmet", "Goggles", "Apparel"], {}, { :class => 'form-control' }) %>
+			</div>
+		</div>
+
+	  <div class="form-group">
+	  	<div class="col-sm-offset-4 col-sm-4">
+	  	<div class="input-group">
+				<span class="input-group-addon">$</span>
+				<span><%= f.text_field "cost", :class => 'form-control', :placeholder => 'Cost' %></span>
+			</div>
+			</div>
+		</div>
+
+	  <div class="form-group">
+	  	<div class="col-sm-offset-4 col-sm-4">
+	  		<p><strong> Upload Image: </strong></p>
+				<%= f.file_field :image%>
+			</div>
+		</div>
+
+		<div class="form-group">
+      <div class="col-sm-6 col-sm-offset-2 text-right">
+        <button class="btn btn-default">Cancel</button>
+        <%= f.submit "Submit", :class => 'btn btn-primary' %>
+      </div>
+    </div>
+
+		<%end%>
+	</fieldset>
+</div>

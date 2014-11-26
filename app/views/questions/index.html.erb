@@ -1,0 +1,47 @@
+<%= link_to "Ask Question", new_question_path, class: 'btn btn-primary pull-right' %>
+<h1>Q&amp;A</h1>
+<hr/>
+
+<div class="row">
+  <div class="col-sm-8">
+    <ul class="list-group">
+      <% @questions.each do |question|%>
+        <li class="list-group-item clearfix">
+          <div class="row">
+              <div class="col-sm-1 text-center"><%= question.votes %> <br /> Votes</div>
+              <div class="col-sm-1 text-center"><%= question.answers.count %> <br /> Answers</div>
+              <div class="col-sm-10">
+                <div class="pull-right">
+                  <% question.tag_list.map do |tag| %>
+                    <%= raw link_to tag, question_tag_path(tag), class: "label label-primary" %>
+                  <% end %>
+                </div>
+
+                <%=link_to question.title, question_path(question.id) %>
+
+                <br/>
+                <small>
+                  Asked <%= time_ago_in_words(question.created_at) %> ago
+                  by <%= question.user.try(:name)%>
+                </small>
+              </div>
+          </div>
+        </li>
+        <%end%>
+    </ul>
+  </div>
+  <div class="col-sm-4">
+    <div id="tag_cloud">
+      <%= link_to "all", questions_path %>
+      <% tag_cloud Question.tag_counts, %w{s m l} do |tag, css_class| %>
+        <%= link_to tag.name, question_tag_path(tag.name), class: css_class %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <ul class="pagination">
+    <li class="disabled"><%= will_paginate @questions %></li>
+  </ul>
+</div>
