@@ -1,4 +1,8 @@
+<% if current_user %>
 <%= link_to "Ask Question", new_question_path, class: 'btn btn-primary pull-right' %>
+<% else %>
+  <div class="btn btn-primary pull-right">You gotta log in to post!</div>
+<% end %>
 <h1>Q&amp;A</h1>
 <hr/>
 
