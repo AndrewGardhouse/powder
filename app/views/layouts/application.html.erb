@@ -24,7 +24,7 @@
           <li class="<%= is_active(videos_path) %>"><%=link_to "Videos", videos_path %></li>
           <li class="<%= is_active(locations_path) %>"><%=link_to "Mountains", locations_path %></li>
           <li class="<%= is_active(posts_all_path) %>"><%=link_to "Classifieds", posts_all_path %></li>
-          <li class="<%= is_active(locations_path) %>"><%=link_to "News", locations_path %></li>
+          <!--<li class="<%= is_active(locations_path) %>"><%=link_to "News", locations_path %></li>-->
         
           <% if current_user %>
             <li class="<%= is_active(user_path(current_user.id)) %>">

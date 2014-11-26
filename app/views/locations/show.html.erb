@@ -1,35 +1,46 @@
 <h2> <%= @location.title %> </h2>
 <hr>
 
-<div class="container-fluid">
 
-	<h3>Mountain Stats</h3>
-	<% @location.description.each do |title, stat| %>
-		<ul>
-			<li><%= title %> : <%= stat %></li>
-		</ul>
-	<% end %>
-
-	<h3>Weather</h3>
-	<p>New snow in the last 24 Hours: <%= @location.snow_fall %> </p>
-	<p>Snow Base: <%= @location.snow_base %></p>
-	<p>Current Temperature: <%= @location.current_temp %></p>
-
-	<div class="text-right">
-		<%= image_tag(@location.url, size: "500", class: "img-rounded") %> 
+	<div class="row">
+		<div class="edge col-sm-3">
+			<h3>Mountain Stats</h3>
+			<% @location.description.each do |title, stat| %>
+				<ul class="list-unstyled">
+					<li><%= title %> : <%= stat %></li>
+				</ul>
+			<% end %>
+		</div>
+		<div class="col-sm-3">
+			<h3>Weather</h3>
+			<p>New snow in the last 24 Hours: <%= @location.snow_fall %> </p>
+			<p>Snow Base: <%= @location.snow_base %></p>
+			<p>Current Temperature: <%= @location.current_temp %></p>
+		</div>
+		<div class="col-sm-6  text-right">
+			<%= image_tag(@location.url, style: "width:100%", class: "img-rounded") %> 
+		</div>
 	</div>
 
-
-	<div class="panel panel-default">
-	  <div class="panel-body">
-			<%= @location.essay %> 
-	  </div>
+	<div class="row panel-body">
+		<% parts = @location.essay.split(' ') %> 
+		<% part_size = parts.size %> 
+		<% part1 = parts.slice(0, part_size / 2).join(" ") %>
+		<% part2 = parts.slice(part_size / 2, part_size).join(" ") %>
+		<%#= @location.essay %>
+		<div class="col-sm-6">
+			<%= part1 %>
+		</div>
+		<div class="col-sm-6">
+			<%= part2 %>
+		</div>
 	</div>
+
 	<ul class="pager">
 		<li>
 			<%= link_to "All mountains", locations_path %> <br/>
 		</li>
 	</ul>
-</div>
+
 
 
