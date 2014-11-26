@@ -48,7 +48,7 @@
 </div>
 <br />
 <ul class="list-group">
-<% (@type.length == 0 ? @bs_posts : @bs_posts.where(type: "#{@type}".capitalize)).each do |item| %>
+<% (@type.length == 0 ? @posts : @posts.where(type: "#{@type}".capitalize)).each do |item| %>
   <li class="list-group-item clearfix">
         <span class="badge pull-right">$<%= item.cost %></span>
         <%= image_tag item.image_url(:smallthumb), {width: 48, height: 48, class: 'pull-left'} %>
@@ -65,12 +65,6 @@
 
 <div class="text-center">
   <ul class="pagination">
-    <li class="disabled"><a href="#">«</a></li>
-    <li class="active"><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li><a href="#">»</a></li>
+    <li class="disabled"><%= will_paginate @posts %></li>
   </ul>
 </div>

@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
     if params[:tag]
       @photos = Photo.tagged_with(params[:tag])
     else
-      @photos = Photo.all
+      @photos = Photo.paginate(:page => params[:page], :per_page => 5)
     end
   end 
 

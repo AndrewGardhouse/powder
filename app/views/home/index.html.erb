@@ -2,10 +2,10 @@
   <div class="container">
     <div class="photo-highlight-label">
       <h2>PHOTOS</h2>
-      <%= @photo.description %>
+      <%= @photo.try(:description) %>
     </div>
   </div>
   <div class="photo-highlight">
-    <img src="<%= @photo.image %>"/>
+    <img src="<%= @photo.try(:image) %>"/>
   </div>
 <% end %>

@@ -1,7 +1,8 @@
 class BsPostsController < ApplicationController
   def index
     # puts params[:type]
-  	@bs_posts = BsPost.all 
+  	@posts = BsPost.paginate(:page => params[:page], :per_page => 5)
+    @bs_posts = BsPost.all 
     @type = params[:type].to_s
     #results = BsPost.where(attributes: bs_post_params)
   end
