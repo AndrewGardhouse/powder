@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'newsposts/index'
+
+  get 'newsposts/show'
+
   resources :home, only: [:new, :create, :destroy]
 
   resources :videos do

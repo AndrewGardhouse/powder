@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120193219) do
+ActiveRecord::Schema.define(version: 20141126022338) do
 
   create_table "answers", force: true do |t|
     t.string   "description"
@@ -51,6 +51,13 @@ ActiveRecord::Schema.define(version: 20141120193219) do
     t.integer  "upvote",                  default: 0
     t.string   "location"
     t.text     "essay"
+  end
+
+  create_table "news_posts", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "photo_comments", force: true do |t|
