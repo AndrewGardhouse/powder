@@ -5,29 +5,29 @@
 <div class="row">
   <div class="col-sm-8">
     <ul class="list-group">
-    <% @questions.each do |question|%>
-      <li class="list-group-item clearfix">
-        <div class="row">
-            <div class="col-sm-1 text-center"><%= question.votes %> <br /> Votes</div>
-            <div class="col-sm-1 text-center"><%= question.answers.count %> <br /> Answers</div>
-            <div class="col-sm-10">
-              <div class="pull-right">
-                <% question.tag_list.map do |tag| %>
-                  <%= raw link_to tag, question_tag_path(tag), class: "label label-primary" %>
-                <% end %>
+      <% @questions.each do |question|%>
+        <li class="list-group-item clearfix">
+          <div class="row">
+              <div class="col-sm-1 text-center"><%= question.votes %> <br /> Votes</div>
+              <div class="col-sm-1 text-center"><%= question.answers.count %> <br /> Answers</div>
+              <div class="col-sm-10">
+                <div class="pull-right">
+                  <% question.tag_list.map do |tag| %>
+                    <%= raw link_to tag, question_tag_path(tag), class: "label label-primary" %>
+                  <% end %>
+                </div>
+
+                <%=link_to question.title, question_path(question.id) %>
+
+                <br/>
+                <small>
+                  Asked <%= time_ago_in_words(question.created_at) %> ago
+                  by <%= question.user.try(:name)%>
+                </small>
               </div>
-
-              <%=link_to question.title, question_path(question.id) %>
-
-              <br/>
-              <small>
-                Asked <%= time_ago_in_words(question.created_at) %> ago
-                by <%= question.user.try(:name)%>
-              </small>
-            </div>
-        </div>
-      </li>
-    <% end %>
+          </div>
+        </li>
+        <%end%>
     </ul>
   </div>
   <div class="col-sm-4">
@@ -42,12 +42,6 @@
 
 <div class="text-center">
   <ul class="pagination">
-    <li class="disabled"><a href="#">«</a></li>
-    <li class="active"><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li><a href="#">»</a></li>
+    <li class="disabled"><%= will_paginate @questions %></li>
   </ul>
 </div>
