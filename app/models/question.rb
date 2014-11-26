@@ -5,7 +5,7 @@ class Question < ActiveRecord::Base
   acts_as_taggable
 
   def votes
-    answers.sum(:votes)
+    (answers.sum(:votes).round(4))/answers.size
   end
   
   # def vote_average
