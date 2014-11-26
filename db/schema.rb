@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120193219) do
+ActiveRecord::Schema.define(version: 20141125234322) do
 
   create_table "answers", force: true do |t|
     t.string   "description"
@@ -33,24 +33,18 @@ ActiveRecord::Schema.define(version: 20141120193219) do
     t.datetime "updated_at"
   end
 
-  create_table "location_comments", force: true do |t|
-    t.string   "comment"
-    t.integer  "vote"
-    t.integer  "location_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "locations", force: true do |t|
     t.string   "title"
     t.string   "url"
-    t.text     "description", limit: 255
+    t.text     "description",  limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "upvote",                  default: 0
     t.string   "location"
     t.text     "essay"
+    t.string   "link"
+    t.string   "snow_base"
+    t.string   "snow_fall"
+    t.string   "current_temp"
   end
 
   create_table "photo_comments", force: true do |t|
@@ -109,7 +103,7 @@ ActiveRecord::Schema.define(version: 20141120193219) do
     t.string   "name"
     t.string   "email"
     t.text     "password_digest",     limit: 255
-    t.integer  "upvotes",                         default: 0
+    t.integer  "upvotes"
     t.integer  "question_id"
     t.integer  "answer_id"
     t.integer  "location_comment_id"

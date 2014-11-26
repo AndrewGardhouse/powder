@@ -6,17 +6,136 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Location.create(title: 'Mt Seymore', url:'http://www.mountseymour.com/_media/images/maps/Mt_Seymour_2014_alpine_map_3360x3720_v3.jpg', description: 'Small mountaint location near the beautiful city of Vancouver, if the clouds missed you, expect to be blown away by the panomaric view', location: 'North Vancouver, BC V7H ', essay: 'some long ass description of the mountain, could even be open-source or sumshie')
-Location.create(title: 'Panorama', url: 'http://www.skirebel.com/magazine/ski-resort-pictures/620916/Panorama-Trail-Map.jpg', description: 'Enjoy the Panoramic view!', location: 'Near Cranbrook, 2000 Panorama Dr
-Panorama, BC V0A 1T0')
-Location.create(title: 'Red Resort', url: 'http://s3.onthesnow.com/images/trailmaps/british-columbia/red-mountain-resort/20130906091235/xlarge.jpg', description: 'Its red!', location: 'Interior, close to US/Can border 4300 Red Mountain Rd, Rossland, BC V0G 1Y0')
-Location.create(title: 'Revelstoke', url: 'http://images.skiresorts-test.com/skigebiete/1191/revelstoke-mountain-resort_trail_map_l3.jpg', description: 'A real BC hidden gem (till travis rice showed up) , could even be a ruby', location: 'In revie!! 2950 Camozzi Rd, Revelstoke, BC V0E 2S1')
-Location.create(title: 'Sun Peaks', url: 'http://www.snow-forecast.com/pistemaps/Sun-Peaks_pistemap.jpg', description: 'Some of the best snow in BC is shed here for you to shred', location: '1280 Alpine Rd
-Sun Peaks, BC V0E 5N0')
-Location.create(title: 'Whistler/Blackcomb', url: 'http://www.moniquedavidson.com/wp-content/uploads/2010/03/WHISTLER1.jpg', description: 'WAAAAAYYYYYYYYYY overhyped', location: '4545 Blackcomb Way
-Whistler, BC V0N 1B4')
-Location.create(title: 'Grouse', url: 'http://www.snow-forecast.com/pistemaps/Grouse-Mountain_pistemap.jpg', description: 'Nice little vancouver favorite, great sunsets, amazing view', location: 'Bussing distance from wangcouver, 6400 Nancy Greene Way, North Vancouver, BC V7R 4K9')
-Location.create(title: 'Big White', url: 'http://www.bigwhite.com/files/9513/2995/5996/inner_bg_FEB-NEW-BIG-WHITE-MAP-BACKGROUND.jpg', description: 'Hella nice mountain yo!', location: 'Near kelowna 5315 Big White Rd
-Kelowna, BC V1P 1P3')
-Location.create(title: 'Mt Baker', url: 'http://www.bigwhite.com/files/9513/2995/5996/inner_bg_FEB-NEW-BIG-WHITE-MAP-BACKGROUND.jpg', description: 'Its a friggin volano!', location: '5315 Big White Rd
-Kelowna, BC V1P 1P3')
+Location.create(title: 'Mount Seymour', 
+                url:'http://www.mountseymour.com/_media/images/maps/Mt_Seymour_2014_alpine_map_3360x3720_v3.jpg', 
+                description: {'Trails (Pistes)' => "40",
+                              'Beginner' => '40%',
+                              "Intermediate" => "40%",
+                              'Advanced' => "20%",
+                              "Acres of ski" => '200',
+                              'Terrain Parks' => '4',
+                              "Halfpipes" => 'No',
+                              'Vertical Drop' => '329 m' },
+                location: {'Latitude' => '49.39', 'Longitude' => '-122.94'},
+                essay: 'Mt Seymour is pure Canadian West Coast. Located just 30 minutes from downtown Vancouver, Mt Seymour is situated on the east side of Vancouver’s North Shore in Mt Seymour Provincial Park. Take in the breathtaking views of Vancouver, the Georgia Straight, Mt Baker, Washington State, and Vancouver Island. The ski area’s proximity to the Pacific Ocean, an eastern aspect, and the highest base elevation in the region combine to provide the slopes with a generous average annual snowfall of over 1,000cm. The ski area’s 81 hectares of terrain, which includes 40 hectares lit for night skiing, features gentle slopes where beginners will progress rapidly and excel. Advanced skiers and snowboarders will discover challenges and hidden secrets within the area’s naturally contoured slopes, gullies, tree runs, and terrain parks. The Ski and Snowboard School has a celebrated history introducing new skiers and snowboarders to the slopes and has developed several popular single-day and multi-day programs. Programs are available for all ages and skill levels and include Bear Cubs, Mountain Riders , City Lights, and the popular Discover Lessons. Freestyle progression continues at Mt Seymour with the development of four terrain parks. The Northlands Terrain Park contains advanced jump and jib features. Th e Young Guns Terrain Park offers a variety of features designed to introduce beginner and intermediate riders to the terrain park experience. The Pit Terrain Park has evolved as one of the most progressive, creative and fun terrain parks in the region over the past couple of seasons. This skate style jib section, which sees pros and beginners alike, has over a dozen features regularly rotated and mixed up to provide a constantly changing place to ride and film. The Mushroom Park, our beginner park, is located off the Goldie Rope Tow and is the ideal place for beginners and intermediates to learn the basic tricks or to master new ones. Filled with mellow jumps and jibs in a relaxed and comfortable area, the Mushroom Park allows riders to progress to the next level in a safe environment. Mt Seymour also maintains extensive terrain and dedicated trails for snowshoeing with several guided programs available such as the popular Chocolate Fondue Tour, SnowFit and Baby & Me. Our hard work has paid off in 2012 with Snowshoe Magazine awarding Mt Seymour the title of “No.1 snowshoe friendly ski resort in North America.” Come and see why. Snowtubing has quickly become an activity of choice for many guests. The Enquist SnowTube Park features four lanes of snowtubing fun, a 100m vertical drop, and a custom-built snowtube tow that eliminates the hike back to the top. For groups looking to have a unique winter experience, Mt Seymour is the most affordable winter destination. Our multi-faceted group programs are designed to fit your group needs. Mt Seymour’s meeting facilities are designed to accommodate a variety of functions from meetings, receptions, and dinners. The Enquist Lodge also offers facilities for groups looking to comb ine a unique winter experience with their event. Mt Seymour is a one-stop winter activity centre. We are a family-run organization guided by a passion for the outdoors and for providing great value and exceptional service. With a long-standing tradition of providing each and every guest with a memorable mountain experience, whether you’re seasoned pro or have never played in snow before, Mt Seymour welcomes you.',
+                link: 'mount-seymour')
+Location.create(title: 'Cypress Mountain', 
+                url:'http://s3.onthesnow.com/images/trailmaps/british-columbia/cypress-mountain/20130805122942/xlarge.jpg',  
+                description: {'Trails (Pistes)' => "53",
+                              'Beginner' => '26%',
+                              "Intermediate" => "25%",
+                              'Advanced' => "49%",
+                              "Acres of ski" => '1482',
+                              'Terrain Parks' => 'Yes',
+                              "Halfpipes" => 'No',
+                              'Vertical Drop' => '613 m' },
+                location: {'Latitude' => '49.396193', 'Longitude' => '-123.204529'},
+                essay: "Cypress Mountain - official freestyle skiing and snowboarding venue for the 2010 Winter Olympic games. Located in West Vancouver, B.C., Canada, Cypress Mountain is only 30 minutes from downtown Vancouver and is proud to continue to provide our skiers, riders and sliders with the most vertical drop, most terrain, most lifts and best snow conditions on the highest skiing and riding peak of Vancouver's Legendary North Shore Mountains. With the best winter skiing & riding in Vancouver, Canada's most popular cross country skiing area, a huge snowtubing park and our unique snowshoeing tours, Cypress Mountain truly offers something for everyone!",
+                link: 'cypress-mountain')
+Location.create(title: 'Grouse Mountain', 
+                url:'http://s3.onthesnow.com/images/trailmaps/british-columbia/grouse-mountain/20130730003059/xlarge.jpg',  
+                description: {'Trails (Pistes)' => "26",
+                              'Beginner' => '50%',
+                              "Intermediate" => "35%",
+                              'Advanced' => "15%",
+                              "Acres of ski" => '212',
+                              'Terrain Parks' => '4',
+                              "Halfpipes" => 'No',
+                              'Vertical Drop' => '344 m' },
+                location: {'Latitude' => '49.374001', 'Longitude' => '-123.099412'},
+                essay: "Grouse Mountain, in Canada (BC), is a small ski resort with just 5 ski lifts (4 chairs, 1 surface) but it does boast a respectable 370 metres (1214 feet) of vertical descent. Grouse Mountain has 212 acres of terrain with 26 trails. Grouse Mountain is best suited to beginner skiers and snowboarders but there is some terrain for both expert and intermediates. There are over 8 kilometres of snow shoeing trails and an outdoor skating pond. For snowboarders, there are 3 terrain parks. The majority of the trails at Grouse Mountain is covered by snowmaking. The nearest airport is at Vancouver and the nearest train station to Grouse Mountain is also at Vancouver.",
+                link: 'grouse-mountain')
+Location.create(title: 'Whistler Blackcomb', 
+                url:'http://s3.onthesnow.com/images/trailmaps/british-columbia/whistler-blackcomb/20140917170554/xlarge.jpg',  
+                description: {'Trails (Pistes)' => "230",
+                              'Beginner' => '16%',
+                              "Intermediate" => "55%",
+                              'Advanced' => "29%",
+                              "Acres of ski" => '7072',
+                              'Terrain Parks' => '2',
+                              "Halfpipes" => '2',
+                              'Vertical Drop' => '1609 m' },
+                location: {'Latitude' => '50.115246', 'Longitude' => '-122.948742'},
+                essay: "Voted the best resort in N.America for the last few years, Whistler offers unrivaled skiing and nightlife. The two mountains, Blackcomb and Whistler should keep you busy for weeks, with kilometer after kilometer of piste. Then there is the off-piste at Whistler, acres of it, coupled with 33ft of snow a year, one of the biggest/scariest terrain parks in the world and tree skiing you cannot get bored of. One of the team had worked for a season there and reckoned he could still get lost. Off the piste at Whistler there is plenty to do, just remember to take plenty of cash with you as it is not cheap.",
+                link: 'whistler-blackcomb')
+Location.create(title: 'Revelstoke', 
+                url:'http://www.snow-forecast.com/pistemaps/Revelstoke_pistemap_full.jpg',  
+                description: {'Trails (Pistes)' => "54",
+                              'Beginner' => '7%',
+                              "Intermediate" => "45.5%",
+                              'Advanced' => "47.5%",
+                              "Acres of ski" => '3121',
+                              'Terrain Parks' => '0',
+                              "Halfpipes" => '0',
+                              'Vertical Drop' => '1713 m' },
+                location: {'Latitude' => '50.958492', 'Longitude' => '-118.163796'},
+                essay: "Revelstoke Mountain Resort boasts North America's greatest vertical at 1,713 metres (5,620 ft). The resort also offers 3,121 acres of fall line skiing, high alpine bowls, renowned gladed terrain and endless groomers, as well as family fun in the Turtle Creek Tube Park and Beginner Area; featuring day and night skiing in the centre of the Village. Revelstoke Mountain Resort is the only resort world-wide to offer lift, cat, heli and backcountry skiing from one village base.", 
+                link: 'revelstoke-mountain')
+Location.create(title: 'Panorama', 
+                url:'http://s3.onthesnow.com/images/trailmaps/british-columbia/panorama-mountain-village/20130730010130/xlarge.jpg',  
+                description: {'Trails (Pistes)' => "120",
+                              'Beginner' => '20%',
+                              "Intermediate" => "55%",
+                              'Advanced' => "25%",
+                              "Acres of ski" => '2847',
+                              'Terrain Parks' => '2',
+                              "Halfpipes" => '0',
+                              'Vertical Drop' => '1219 m' },
+                location: {'Latitude' => '50.461002', 'Longitude' => '-116.238065'},
+                essay: "Panorama (Panorama Mountain Village) is an intimate mountain resort which offers a village atmosphere, double black diamond glade skiing to uncrowded wide open groomed trails. The ski area is located two hours southwest of Banff - on the warmer side of the Rockies. You will find annual snowfall of around 15 feet, snowboarding, and cross country terrain. Quad chairlifts to the summit give access to one of the largest verticals in North America (4000ft / 1200m). Snowmaking covers 40 percent of Panorama's 2847 acres of terrain. Slopeside condominiums and hotel rooms offer accommodations for up to 3500 people in the village. There nearby town of Invermere, British Columbia, offers shopping dining and hard-hitting ice-hockey.",
+                link: 'panorama-mountain')
+Location.create(title: 'Red Mountain', 
+                url:'http://s3.onthesnow.com/images/trailmaps/british-columbia/red-mountain-resort/20130906091235/xlarge.jpg',  
+                description: {'Trails (Pistes)' => "120",
+                              'Beginner' => '20%',
+                              "Intermediate" => "55%",
+                              'Advanced' => "25%",
+                              "Acres of ski" => '2847',
+                              'Terrain Parks' => '2',
+                              "Halfpipes" => '0',
+                              'Vertical Drop' => '1219 m' },
+                location: {'Latitude' => '50.461002', 'Longitude' => '-116.238065'},
+                essay: 'RED Mountain is the last great, unspoiled resort. Located in Rossland, BC, along the famous "Powder Highway," RED delivers 4,200 acres of pristine skiing unfettered by overdevelopment. For 2013-14, the resort added nearly 1,000 acres of mostly-intermediate terrain on Grey Mountain, an entirely new peak. With 300"/7.6m of annual snowfall, wide-open groomed runs, epic vertical (2,919ft/890m), in-bounds cat-skiing, 360 degree descents off select peaks, a rich tradition, and the best tree runs in BC!',
+                link: 'red-resort' )
+Location.create(title: 'Sun Peaks', 
+                url:'http://s3.onthesnow.com/images/trailmaps/british-columbia/sun-peaks-resort/20140910175200/xlarge.jpg',  
+                description: {'Trails (Pistes)' => "122",
+                              'Beginner' => '10%',
+                              "Intermediate" => "58%",
+                              'Advanced' => "32%",
+                              "Acres of ski" => '3678',
+                              'Terrain Parks' => '1',
+                              "Halfpipes" => '2',
+                              'Vertical Drop' => '882 m' },
+                location: {'Latitude' => '50.877765', 'Longitude' => '-119.909023'},
+                essay: 'Centrally located in southern British Columbia, Canada, Sun Peaks Resort is spread across three mountains and the third largest ski area in Canada. Formerly called Tod Mountain, the resort features an alpine village at its base, and offers 125 trails spread across 3,678 acres of uncrowded skier and rider accessible terrain. From groomed cruisers to bumps and terrain parks, and glades, steeps and alpine bowls, the varied terrain at Sun Peaks Resort accommodates all levels and abilities. Featuring 10% beginner terrain, 58% intermediate and 32% expert, the resort boasts that varying levels of skier and boarders can ride up the same lift, take different trails down, and meet up at the same lift again.', link: 'sun-peaks' )
+Location.create(title: 'Big White', 
+                url:'http://s3.onthesnow.com/images/trailmaps/british-columbia/big-white-ski-resort/xlarge.jpg',  
+                description: {'Trails (Pistes)' => "118",
+                              'Beginner' => '18%',
+                              "Intermediate" => "54%",
+                              'Advanced' => "28%",
+                              "Acres of ski" => '2765',
+                              'Terrain Parks' => '1',
+                              "Halfpipes" => '1',
+                              'Vertical Drop' => '777 m' },
+                location: {'Latitude' => '49.724610', 'Longitude' => '-118.925859'},
+                essay: 'Big White Ski Resort is a great destination for all types of skiers and snowboarders, offering wide expansive terrain, light dry powder, short lift lines and modern facilities. The Big White Village is home to the most ski-in/ski-out accommodations in Canada.
+
+Located in scenic British Columbia’s Okanagan Valley, Big White is about 56 kilometers or 35 miles outside the town of Kelowna. The ski area is situated on the side of Big White Mountain and offers terrain suited to span the spectrum of ability levels. The resort is an excellent family destination offering a wide array of family-friendly activities, including snowshoeing, tubing, skating, snowmobiling, dog sledding, horse-drawn sleigh rides and Nordic skiing.', link: 'big-white' )
+Location.create(title: 'Mount Washington', 
+                url:'http://s3.onthesnow.com/images/trailmaps/british-columbia/mount-washington-alpine-resort/20130730005604/xlarge.jpg',  
+                description: {'Trails (Pistes)' => "81",
+                              'Beginner' => '14%',
+                              "Intermediate" => "35%",
+                              'Advanced' => "51%",
+                              "Acres of ski" => '1700',
+                              'Terrain Parks' => '2',
+                              "Halfpipes" => 'No',
+                              'Vertical Drop' => '505 m' },
+                location: {'Latitude' => '49.741413', 'Longitude' => ' -125.303468'},
+                essay: 'Nestled into the Beaufort Mountain range overlooking Vancouver Island and The Pacific, Mount Washington is a true snow collector, averaging more than 30 feet of snow every season. True fans fancy The Outback, a 400-acre Double Black Diamond playground of rich glades, magnificent bowls and steep drops. The area is served by a state of the art high-speed detachable quad, dubbed The Boomerang Quad.', link: 'mt-washington-alpine-resort' )
+
+
+
+

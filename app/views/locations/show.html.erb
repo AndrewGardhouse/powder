@@ -2,9 +2,23 @@
 <hr>
 
 <div class="container-fluid">
-	<div class="text-center">
+
+	<h3>Mountain Stats</h3>
+	<% @location.description.each do |title, stat| %>
+		<ul>
+			<li><%= title %> : <%= stat %></li>
+		</ul>
+	<% end %>
+
+	<h3>Weather</h3>
+	<p>New snow in the last 24 Hours: <%= @location.snow_fall %> </p>
+	<p>Snow Base: <%= @location.snow_base %></p>
+	<p>Current Temperature: <%= @location.current_temp %></p>
+
+	<div class="text-right">
 		<%= image_tag(@location.url, size: "500", class: "img-rounded") %> 
 	</div>
+
 
 	<div class="panel panel-default">
 	  <div class="panel-body">
@@ -17,7 +31,5 @@
 		</li>
 	</ul>
 </div>
-
-
 
 

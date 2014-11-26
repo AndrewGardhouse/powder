@@ -34,6 +34,7 @@ gem 'pry'
 gem 'video_info'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'json'
+gem 'nokogiri'
 
 # Use unicorn as the app server
 # gem 'unicorn'
