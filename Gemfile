@@ -37,6 +37,7 @@ gem 'json'
 gem 'nokogiri'
 gem 'will_paginate'
 gem 'pg'
+gem 'puma'
 
 # Use unicorn as the app server
 # gem 'unicorn'
