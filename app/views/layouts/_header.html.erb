@@ -27,6 +27,13 @@
               <li>
                 <%= image_tag gravatar(current_user.email, 42), :class => "img-circle" %>
               </li>
+            <% else %>
+              <li class="<%= is_active(new_session_path) %>">
+                <%= link_to "Log in", new_session_path %>
+              </li>
+              <li class="<%= is_active(new_user_path) %>">
+              <%= link_to "Sign Up", new_user_path, class: "btn btn-success", style: "border:0;" %>
+              </li>
             <%end%>
           </ul>
         </div>

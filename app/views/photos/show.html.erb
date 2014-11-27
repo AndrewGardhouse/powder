@@ -1,6 +1,13 @@
 <h1><%= @photo.title %></h1>
 <hr/>
 
+<div class="row">
+  <div class="col-sm-12">
+    <%= link_to "« Back to Photos", photos_path, class: "btn btn-link" %>
+  </div>
+</div>
+<br />
+
 <div class="text-center">
   <%= image_tag @photo.image_url, :class => 'img-thumbnail' %>
 </div>
@@ -31,6 +38,5 @@
     <%= comment.comment %>
   </div>
   <%end%>
- 
 </div>
 

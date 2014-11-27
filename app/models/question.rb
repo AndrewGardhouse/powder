@@ -5,10 +5,11 @@ class Question < ActiveRecord::Base
   acts_as_taggable
 
   def votes
-    (answers.sum(:votes).round(4))/answers.size
+    computed_votes = answers.sum(:votes).round(2) / answers.size
+    if computed_votes.nan? 
+      0.0
+    else 
+      computed_votes.round(1)
+    end
   end
-  
-  # def vote_average
-  #   (answers.sum(:votes).round(4))/answers.size
-  # end
 end

@@ -2,9 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.mountain{
-  margin-left: 200px;
-  margin-right: 200px;
+.location-thumbnail{
+  width:100px;
+  height:4em;
+  margin-right:1em;
+  overflow:hidden;
+  float:left;
 }
 
 .mtn-info {

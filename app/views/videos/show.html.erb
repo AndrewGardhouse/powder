@@ -1,6 +1,13 @@
 <h1><%= @video.title %></h1>
 <hr/>
 
+<div class="row">
+  <div class="col-sm-12">
+    <%= link_to "« Back to Photos", photos_path, class: "btn btn-link" %>
+  </div>
+</div>
+<br />
+
 <div class="text-center">
   <p><%= raw(@video.embed(@video.url))%></p>
 </div>
