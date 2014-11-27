@@ -1,6 +1,20 @@
 <h2> <%= @location.title %> </h2>
 <hr>
-
+	
+	<div>
+		<h3>Deals</h3>
+		<% if @location.deal_link == nil %>
+			<p>Sorry, there are no deals to be found at this point in time.</p>
+		<% else %>	
+			<% @location.deal_link.each do |deal, link| %>		
+				<% if @location.title == 'Whistler Blackcomb' %>
+					<p><%= link_to deal, link %></p>
+				<% else %>
+					<p><%= link_to deal, "http://www.liftopia.com/#{link}" %></p>
+				<% end %>
+			<% end %>
+		<% end %>
+	</div>
 
 	<div class="row">
 		<div class="edge col-sm-3">
