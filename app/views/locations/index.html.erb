@@ -1,12 +1,12 @@
 <h1>Mountains</h1>
 <hr/>
 
-<ul class="list-group">
+<ul class="list-group mountain">
 <% @locations.each do |location| %>
   <li class="list-group-item">
     <div class="row">
-      <div class="col-sm-8">
-        <%= link_to location.title, location_path(location) %><br/>
+      <div class="mtn-info col-sm-12">
+        <strong><%= link_to location.title, location_path(location) %></strong><br/>
         <%= truncate(location.essay, length: 120)%>
       </div>
     </div>

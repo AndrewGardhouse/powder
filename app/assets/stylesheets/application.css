@@ -11,8 +11,8 @@
  * file per style scope.
  *
  *= require_tree .
- *= require_self
  *= require bootstrap
+*= require_self
  */
 
 body {
@@ -43,4 +43,9 @@ body > .container > .btn-primary:first-child {
 
 #footer .text-right {
   padding:1em 0 0;
+}
+
+.navbar-brand {
+  padding: 25px 15px;
+  font-size: 30px;
 }
