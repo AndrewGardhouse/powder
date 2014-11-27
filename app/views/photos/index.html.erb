@@ -38,8 +38,5 @@
   </div>
 </div>
 <div class="text-center">
-  <ul class="pagination">
-    <li class="disabled"><%= will_paginate @photos %></li>
-    
-  </ul>
+    <%= will_paginate @collection, renderer: BootstrapPagination::Rails, class: "pagination-sm" %>
 </div>

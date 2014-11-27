@@ -1,7 +1,7 @@
 class BsPostsController < ApplicationController
   def index
     # puts params[:type]
-  	@posts = BsPost.paginate(:page => params[:page], :per_page => 5)
+  	@posts = BsPost.paginate(:page => params[:page], :per_page => 50)
     @bs_posts = BsPost.all 
     @type = params[:type].to_s
     #results = BsPost.where(attributes: bs_post_params)
@@ -32,7 +32,7 @@ class BsPostsController < ApplicationController
   def destroy
     @bs_post = BsPost.find(params[:id])
     @bs_post.destroy
-    redirect_to posts_path
+    redirect_to posts_all_path
   end
 
 

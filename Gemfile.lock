@@ -135,6 +135,8 @@ GEM
       htmlentities
       multi_json
     will_paginate (3.0.7)
+    will_paginate-bootstrap (1.0.1)
+      will_paginate (>= 3.0.3)
 
 PLATFORMS
   ruby
@@ -161,4 +163,4 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   video_info
-  will_paginate
+  will_paginate-bootstrap

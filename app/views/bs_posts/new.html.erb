@@ -27,7 +27,7 @@
 	  	<div class="col-sm-offset-4 col-sm-4">
 	  	<div class="input-group">
 				<span class="input-group-addon">$</span>
-				<span><%= f.text_field "cost", :class => 'form-control', :placeholder => 'Cost' %></span>
+				<span><%= f.text_field "cost", :class => 'form-control', :placeholder => 'Price' %></span>
 			</div>
 			</div>
 		</div>
@@ -41,7 +41,7 @@
 
 		<div class="form-group">
       <div class="col-sm-6 col-sm-offset-2 text-right">
-        <button class="btn btn-default">Cancel</button>
+      <%= link_to "« Back to Classifieds", posts_all_path, class: "btn btn-link" %>
         <%= f.submit "Submit", :class => 'btn btn-primary' %>
       </div>
     </div>
