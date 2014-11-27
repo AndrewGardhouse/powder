@@ -5,11 +5,11 @@
   <fieldset>
   <%= form_for @user do |f| %>
     <% if @user.errors.any? %>
-      <div>
+      <div class="alert alert-dismissable alert-danger">
         <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
-        <ul>
+        <ul class="list-unstyled">
           <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
+            <li><strong><%= msg %></strong></li>
           <% end %>
         </ul>
       </div>
