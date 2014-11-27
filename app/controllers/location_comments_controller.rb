@@ -4,7 +4,7 @@ class LocationCommentsController < ApplicationController
   before_filter :restrict_access
 
 	def new
-  		@comment = @location.location_comments.build
+  	@comment = @location.location_comments.build
 	end
 
 	def create

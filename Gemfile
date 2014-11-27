@@ -35,8 +35,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'json'
 gem 'nokogiri'
 gem 'will_paginate'
-gem 'pg'
-gem 'puma'
+gem 'sqlite3'
 
 # Use unicorn as the app server
 # gem 'unicorn'
