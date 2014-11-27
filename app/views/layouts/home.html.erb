@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Snow'd In</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render 'layouts/header' %>
+  <%= yield(:highlight) %>
+  <div class="">
+    <% flash.each do |msg|%>
+      <div class="alert alert-dismissable alert-success">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <%= msg[1] %>
+      </div>
+    <%end%>
+    <%= yield %>
+    <hr>
+    <br>
+  </div>
+  <footer id="footer">
+    <div class="container">
+      <a href="/" class="navbar-brand"><em>SNOW'D IN</em></a>
+      <div class="text-right">
+        <%= render 'layouts/footer' %>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+

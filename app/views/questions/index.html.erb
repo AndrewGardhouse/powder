@@ -1,9 +1,9 @@
 <% if current_user %>
 <%= link_to "Ask Question", new_question_path, class: 'btn btn-primary pull-right' %>
 <% else %>
-  <div class="btn btn-primary pull-right">You gotta log in to post!</div>
+  <%= link_to "Log in", new_session_path, :class => "btn btn-primary pull-right" %>
 <% end %>
-<h1>Q&amp;A</h1>
+<h1>Q &amp; A</h1>
 <hr/>
 
 <div class="row">
@@ -13,8 +13,8 @@
         <li class="list-group-item clearfix">
           <div class="row">
               <div class="col-sm-1 text-center"><%= question.votes %> <br /> Votes</div>
-              <div class="col-sm-1 text-center"><%= question.answers.count %> <br /> Answers</div>
-              <div class="col-sm-10">
+              <div class="col-sm-2 text-center"><%= question.answers.count %> <br /> Answers</div>
+              <div class="col-sm-9">
                 <div class="pull-right">
                   <% question.tag_list.map do |tag| %>
                     <%= raw link_to tag, question_tag_path(tag), class: "label label-primary" %>
@@ -45,7 +45,6 @@
 </div>
 
 <div class="text-center">
-  <ul class="pagination">
-    <li class="disabled"><%= will_paginate @questions %></li>
-  </ul>
+    <%= will_paginate @collection, renderer: BootstrapPagination::Rails, class: "pagination-sm" %>
 </div>
+

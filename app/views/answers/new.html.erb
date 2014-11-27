@@ -1,4 +1,4 @@
-<h1>Answer</h1>
+<h2><strong><%= @question.title %></strong></h2>
 <hr/>
 
 <div class="form-horizontal">
@@ -6,15 +6,15 @@
 	<%= form_for([@question, @answer]) do |f| %>
 	
 	<% if @answer.errors.any?%>
-		<div>
+    <div class="alert alert-dismissable alert-danger">
 			<%= pluralize(@answer.errors.count, "error") %>
 			prevented the review from being saved: 
-			<ul>
+			<ul class="list-unstyled">
 				<% @answer.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
+				<li><strong><%= msg %></strong></li>
 				<%end%>
 			</ul>
-
+    </div>
 	<%end%>
 
   <div class="form-group">
@@ -29,7 +29,7 @@
     </div>
   <div class="form-group">
     <div class="col-sm-6 col-sm-offset-2 text-right">
-      <button class="btn btn-default">Cancel</button>
+      <%= link_to "« Back to Question", @question, class: "btn btn-link" %>
       <%= f.submit "Submit", :class => 'btn btn-primary' %>
     </div>
   </div>
@@ -37,6 +37,7 @@
   </fieldset>
   <%end%>
 </div>
+
 
 
 

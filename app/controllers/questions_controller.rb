@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
     if params[:tag]
       @questions = Question.tagged_with(params[:tag])
     else
-  	  @questions = Question.paginate(:page => params[:page], :per_page => 5)
+  	  @questions = Question.paginate(:page => params[:page], :per_page => 10)
     end
   end
 

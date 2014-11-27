@@ -1,11 +1,16 @@
 <h2> <%= @location.title %> </h2>
-<hr>
-	
+<hr />
+
+<div class="row">
+  <div class="col-sm-12">
+    <%= link_to "« Back to Mountains", locations_path, class: "btn btn-link" %>
+  </div>
+</div>
+<br />
+
+<% if @location.deal_link != nil %>
 	<div>
 		<h3>Deals</h3>
-		<% if @location.deal_link == nil %>
-			<p>Sorry, there are no deals to be found at this point in time.</p>
-		<% else %>	
 			<% @location.deal_link.each do |deal, link| %>		
 				<% if @location.title == 'Whistler Blackcomb' %>
 					<p><%= link_to deal, link %></p>
@@ -13,8 +18,8 @@
 					<p><%= link_to deal, "http://www.liftopia.com/#{link}" %></p>
 				<% end %>
 			<% end %>
-		<% end %>
 	</div>
+<% end %>
 
 	<div class="row">
 		<div class="edge col-sm-3">
@@ -25,7 +30,7 @@
 				</ul>
 			<% end %>
 		</div>
-		<div class="col-sm-3">
+		<div class="col-sm-2">
 			<h3>Weather</h3>
 			<p>New snow in the last 24 Hours: <%= @location.snow_fall %> </p>
 			<p>Snow Base: <%= @location.snow_base %></p>
@@ -49,13 +54,3 @@
 			<%= part2 %>
 		</div>
 	</div>
-
-	<ul class="pager">
-		<li>
-			<%= link_to "All mountains", locations_path %> <br/>
-		</li>
-	</ul>
-</div>
-
-
-
