@@ -1,7 +1,7 @@
 <%if current_user%>
-<%= link_to "Upload Photo", new_photo_path, class: 'btn btn-primary pull-right' %>
+  <%= link_to "Upload Photo", new_photo_path, class: 'btn btn-primary pull-right' %>
 <% else %>
-  <div class="btn btn-primary pull-right">You gotta log in to post!</div>
+  <%= link_to "Log in", new_session_path, :class => "btn btn-primary pull-right" %>
 <% end %>
 <h1>Photos</h1>
 <hr/>
