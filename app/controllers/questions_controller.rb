@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
       @question = Question.new
       @question.user = current_user
     if params[:tag]
-      @questions = Question.tagged_with(params[:tag])
+      @questions = Question.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 10)
     else
   	  @questions = Question.paginate(:page => params[:page], :per_page => 10)
     end

@@ -14,10 +14,10 @@
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav nav-pills navbar-right">
             <li class="<%= is_active(questions_path) %>"><%=link_to "Q & A", questions_path %></li>
-            <li class="<%= is_active(photos_path) %>"><%=link_to "Photos", photos_path %></li>
-            <li class="<%= is_active(videos_path) %>"><%=link_to "Videos", videos_path %></li>
             <li class="<%= is_active(locations_path) %>"><%=link_to "Mountains", locations_path %></li>
             <li class="<%= is_active(posts_all_path) %>"><%=link_to "Classifieds", posts_all_path %></li>
+            <li class="<%= is_active(photos_path) %>"><%=link_to "Photos", photos_path %></li>
+            <li class="<%= is_active(videos_path) %>"><%=link_to "Videos", videos_path %></li>
             <!--<li class="<%= is_active(locations_path) %>"><%=link_to "News", locations_path %></li>-->
           
             <% if current_user %>
