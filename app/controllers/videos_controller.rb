@@ -19,9 +19,9 @@ class VideosController < ApplicationController
 
   def index
     if params[:tag]
-      @videos = Video.tagged_with(params[:tag])
+      @videos = Video.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 8)
     else
-      @videos = Video.paginate(:page => params[:page], :per_page => 25)
+      @videos = Video.paginate(:page => params[:page], :per_page => 8)
     end
   end 
 

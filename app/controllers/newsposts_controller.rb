@@ -4,7 +4,7 @@ class NewspostsController < ApplicationController
   	
   	respond_to do |format|
   		format.rss  {render action: 'feed', layout: false}
-	end
+	 end
   end
 
   def show

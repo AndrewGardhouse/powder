@@ -5,10 +5,11 @@
   <% @locations.each do |location| %>
     <li class="list-group-item">
       <div class="location-thumbnail"><%= image_tag(location.url, style: "width:100%") %></div>
-      <strong><%= link_to location.title, location_path(location) %></strong><br/>
-      <%= truncate(location.essay, length: 240)%>
-      <%= link_to "More »", location_path(location) %>
+      <strong><%= link_to location.title, location_path(location) %></br></strong> Current Temperature: <%= location.current_temp %></br> New snow in the last 24 Hours: <%= location.snow_fall %><br/>
     </li>
   <% end %>
 </ul>
+<div class="text-center">
+    <%= will_paginate @collection, renderer: BootstrapPagination::Rails, class: "pagination-sm" %>
+</div>
 

@@ -6,8 +6,6 @@ class User < ActiveRecord::Base
   has_many :location_comments, dependent: :destroy
   has_many :bsposts, dependent: :destroy
 
-  mount_uploader :avatar, ImageUploader
-
   has_secure_password
 
   validates :name,

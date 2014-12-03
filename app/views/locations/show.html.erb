@@ -8,38 +8,41 @@
 </div>
 <br />
 
-<% if @location.deal_link != nil %>
-	<div>
-		<h3>Deals</h3>
-			<% @location.deal_link.each do |deal, link| %>		
-				<% if @location.title == 'Whistler Blackcomb' %>
-					<p><%= link_to deal, link %></p>
-				<% else %>
-					<p><%= link_to deal, "http://www.liftopia.com/#{link}" %></p>
+	<div class="row ONE">
+		<div class="col-sm-6">
+			<div class="col-sm-6">
+				<h3>Mountain Stats</h3>
+				<% @location.description.each do |title, stat| %>
+					<ul class="list-unstyled">
+						<li><%= title %> : <%= stat %></li>
+					</ul>
 				<% end %>
-			<% end %>
-	</div>
-<% end %>
-
-	<div class="row">
-		<div class="edge col-sm-3">
-			<h3>Mountain Stats</h3>
-			<% @location.description.each do |title, stat| %>
-				<ul class="list-unstyled">
-					<li><%= title %> : <%= stat %></li>
-				</ul>
-			<% end %>
+			</div>
+			<div class="col-sm-6">
+				<h3>Weather</h3>
+				<p>New snow in the last 24 Hours: <%= @location.snow_fall %> </p>
+				<p>Snow Base: <%= @location.snow_base %></p>
+				<p>Current Temperature: <%= @location.current_temp %></p>
+			</div>
+			<div class="col-sm-12">
+			<% if @location.deal_link != nil %>
+				<div id="deals">
+					<h3>Deals</h3>
+						<% @location.deal_link.each do |deal, link| %>		
+							<% if @location.title == 'Whistler Blackcomb' %>
+								<p><%= link_to deal, link %></p>
+							<% else %>
+								<p><%= link_to deal, "http://www.liftopia.com/#{link}" %></p>
+							<% end %>
+						<% end %>
+				</div>
+		<% end %>		
+		</div>	
 		</div>
-		<div class="col-sm-2">
-			<h3>Weather</h3>
-			<p>New snow in the last 24 Hours: <%= @location.snow_fall %> </p>
-			<p>Snow Base: <%= @location.snow_base %></p>
-			<p>Current Temperature: <%= @location.current_temp %></p>
-		</div>
-		<div class="col-sm-6  text-right">
+		<div class="col-sm-6 text-right">
 			<%= image_tag(@location.url, style: "width:100%", class: "img-rounded") %> 
 		</div>
-	</div>	
+	</div>
 
 	<div class="row panel-body">
 		<% parts = @location.essay.split(' ') %> 

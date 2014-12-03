@@ -4,6 +4,9 @@ class Video < ActiveRecord::Base
 
   acts_as_taggable
 
+  validates :url,
+    presence: true
+
   def embed(url)
     video = VideoInfo.new(url)
     video.embed_code(iframe_attributes: { width: 800, height: 600, "data-key" => "value" })

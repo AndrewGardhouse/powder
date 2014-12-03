@@ -34,6 +34,7 @@ gem 'video_info'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'json'
 gem 'nokogiri'
+gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'sqlite3'
 
