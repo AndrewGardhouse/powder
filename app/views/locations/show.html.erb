@@ -18,12 +18,14 @@
 					</ul>
 				<% end %>
 			</div>
+
 			<div class="col-sm-6">
 				<h3>Weather</h3>
 				<p>New snow in the last 24 Hours: <%= @location.snow_fall %> </p>
 				<p>Snow Base: <%= @location.snow_base %></p>
 				<p>Current Temperature: <%= @location.current_temp %></p>
 			</div>
+
 			<div class="col-sm-12">
 			<% if @location.deal_link != nil %>
 				<div id="deals">
@@ -36,7 +38,7 @@
 							<% end %>
 						<% end %>
 				</div>
-		<% end %>		
+			<% end %>		
 		</div>	
 		</div>
 		<div class="col-sm-6 text-right">
