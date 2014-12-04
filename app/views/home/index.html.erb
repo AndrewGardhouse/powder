@@ -2,7 +2,7 @@
   <div class="container">
     <div class="photo-highlight-label">
       <h2><%= @photo.try(:title) %></h2>
-      <p>Photography by: <%= @photo.user.name %></p>
+      <p>Photography by: <%= @photo.try(:user => :name) %></p>
     </div>
   </div>
   <div class="photo-highlight">
