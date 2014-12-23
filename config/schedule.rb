@@ -19,10 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 2.minutes do 
-	rake 'deals'
-end
-
 every 1.day, :at => '5am' do
 	rake 'current_temp'
 	rake 'snow_report'
