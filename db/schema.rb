@@ -58,6 +58,31 @@ ActiveRecord::Schema.define(version: 201412231910156) do
     t.string   "percent_off"
   end
 
+  create_table "mad_chatter_messages", force: true do |t|
+    t.string   "text"
+    t.string   "html"
+    t.integer  "room_id"
+    t.integer  "author_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mad_chatter_rooms", force: true do |t|
+    t.string   "name"
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mad_chatter_users", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "username"
+    t.string   "encrypted_password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "news_posts", force: true do |t|
     t.string   "title"
     t.string   "description"

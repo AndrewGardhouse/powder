@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  mount MadChatter::RailsEngine => "/chat"
+
   get 'newsposts/index'
 
   get 'newsposts/show'
