@@ -2,10 +2,10 @@ class LocationCommentsController < ApplicationController
   
   	before_filter :load_location
   	before_filter :restrict_access
-
+  	
 	def new
 		@location = Location.find(params["location_id"])
-  		@comment = @location.location_comments.build
+  		@location_comments = @location.location_comments.build
 	end
 
 	def create

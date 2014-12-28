@@ -15,8 +15,8 @@
 		      New snow in the last 24 Hours: <%= location.snow_fall %><br/>
 	      </div>
 	      <div class="">
-		      <% if location.location_comments.size > 0 %>
-		      	<div> Users found the forecast <%= location.location_comments.average(:vote) %> % accurate </div>
+		      <% if location.location_comments.size > 0 && location.location_comments.any? {|comment| comment.vote != nil} %>
+		      	<div> Users found the forecast <%= location.location_comments.average(:vote).round(2) %> % accurate </div>
 		        <% if location.location_comments.average(:vote) >= 50.0 %>
 		          <div class="label label-success"> 
 		            Fresh Foecast! 

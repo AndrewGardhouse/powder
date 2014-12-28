@@ -1,18 +1,23 @@
+<div class="form-horizontal" style="margin-left: 437px;">
+  <fieldset>
 <%= form_for([@location, @location_comments]) do |f| %>
-  <% if @review.errors.any? %>
-    <div>
-      <%= pluralize(@review.errors.count, "error") %> prevented the review from being saved:
-      <ul>
-        <% @review.errors.full_messages.each do |msg| %>
+  <% if @location_comments.errors.any? %>
+    <div class="alert alert-dismissable alert-danger">
+      <%= pluralize(@location_comments.errors.count, "error") %> prevented the location_comments from being saved:
+      <ul class="list-unstyled">
+        <% @location_comments.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-  <div>
-    <%= f.label "Fresh or False" %><br>
-    <%= f.select_tag(:rating_out_of_ten) %>
-    <%= f.options_for_select([[100, 1], [0, 2]]) %>
+  <div class="form-group">
+    <%= f.select(:vote, [["Fresh or false?", nil], ["Fresh", 100], ["False", 0]], {}, {:class => "form-control", :style => 'width:150px'})%>
   </div>
-  <div><%= f.submit "Submit" %></div>
+  <div>
+    <%= f.submit "Submit", :class => "btn btn-primary", :style => "margin-left 445px" %>
+  </div>
+</fieldset>
 <% end %>
+</div>
+

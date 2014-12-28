@@ -18,22 +18,12 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-
-every 1.day, :at => '5am' do
-	rake 'current_temp'
-	rake 'snow_report'
+every 1.day, :at =>'12am' do
+	rake 'clear_vote'
 end
 
-every 1.day, :at => '6am' do
+every :hour do
 	rake 'current_temp'
 	rake 'snow_report'
-end
-
-every 1.day, :at => '7am' do
-	rake 'current_temp'
-	rake 'snow_report'
-end
-
-every 1.day, :at => '12pm' do
 	rake 'deals'
 end
