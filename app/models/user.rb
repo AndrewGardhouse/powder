@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :photo_comments, dependent: :destroy
   has_many :location_comments, dependent: :destroy
   has_many :bsposts, dependent: :destroy
+  has_many :reviews
 
   has_secure_password
 

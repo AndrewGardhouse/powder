@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126230154) do
+ActiveRecord::Schema.define(version: 201412231910156) do
 
   create_table "answers", force: true do |t|
     t.string   "description"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20141126230154) do
     t.string   "image"
     t.integer  "cost"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "location_comments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "location_id"
+    t.integer  "vote"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,6 +96,15 @@ ActiveRecord::Schema.define(version: 20141126230154) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "reviews", force: true do |t|
+    t.integer "user_id"
+    t.integer "location_id"
+    t.integer "rating"
+  end
+
+  add_index "reviews", ["location_id"], name: "index_reviews_on_location_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

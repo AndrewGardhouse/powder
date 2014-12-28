@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
   
   def index
-  	@locations = Location.paginate(:page => params[:page], :per_page => 5)
+  	@locations  = Location.paginate(:page => params[:page], :per_page => 5)     
   end
 
   def edit
@@ -12,11 +12,6 @@ class LocationsController < ApplicationController
   	@location = Location.find(params[:id])
   end
 
-  def upvote
-    #@location = Location.find(params["location_id"])
-    Location.increment_counter(:upvote, params["location_id"])
-    redirect_to locations_path
-  end
 
   def update
   	@location = Location.find(params[:id])

@@ -1,0 +1,18 @@
+<%= form_for([@location, @location_comments]) do |f| %>
+  <% if @review.errors.any? %>
+    <div>
+      <%= pluralize(@review.errors.count, "error") %> prevented the review from being saved:
+      <ul>
+        <% @review.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= f.label "Fresh or False" %><br>
+    <%= f.select_tag(:rating_out_of_ten) %>
+    <%= f.options_for_select([[100, 1], [0, 2]]) %>
+  </div>
+  <div><%= f.submit "Submit" %></div>
+<% end %>

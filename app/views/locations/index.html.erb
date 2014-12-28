@@ -1,28 +1,47 @@
 <h1>Mountains</h1>
 <hr/>
 
-<ul class="list-group mountain">
+<div class="list-group mountain">
 
-  <% @locations.each do |location| %>
-    <li class="list-group-item">
-      <div class="location-thumbnail"><%= image_tag(location.url, style: "width:100%") %></div>
-      <strong><%= link_to location.title, location_path(location) %></br></strong> Current Temperature: <%= location.current_temp %></br> New snow in the last 24 Hours: <%= location.snow_fall %><br/>
-    </li>
-  <% end %>
-</ul>
+	<div>
+	  <% @locations.each do |location| %>
+	    <div class="list-group-item">
+	      <div class="location-thumbnail">
+	        <%= image_tag(location.url, style: "width:100%") %> 
+	      </div>
+	    	<div class="">
+		      <strong> <%= link_to location.title, location_path(location) %> </br></strong> 
+		      Current Temperature: <%= location.current_temp %></br> 
+		      New snow in the last 24 Hours: <%= location.snow_fall %><br/>
+	      </div>
+	      <div class="">
+		      <% if location.location_comments.size > 0 %>
+		      	<div> Users found the forecast <%= location.location_comments.average(:vote) %> % accurate </div>
+		        <% if location.location_comments.average(:vote) >= 50.0 %>
+		          <div class="label label-success"> 
+		            Fresh Foecast! 
+		          </div>
+		        <% else %>
+		          <div class="label label-danger"> 
+		            False Forecast! 
+		          </div>
+		        <%end%>
+		      <% else %>
+		        <div class="label label-primary">
+		          No one has rated this forecast yet
+		        </div>  
+		      <%end%>
+		      <div> 
+		        <%= link_to "Is this forecast Fresh or False?", new_location_location_comment_path(location) %> 
+		      </div>
+	    	</div>
+	    </div>
+	  <% end %>
+	</div>
+</div>
 <div class="text-center">
     <%= will_paginate @collection, renderer: BootstrapPagination::Rails, class: "pagination-sm" %>
 </div>
 
-<div class="text-center">
-  <ul class="pagination">
-    <li class="disabled"><a href="#">«</a></li>
-    <li class="active"><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li><a href="#">»</a></li>
-  </ul>
-</div>
+
 

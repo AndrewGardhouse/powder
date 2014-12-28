@@ -1,18 +1,20 @@
 class LocationCommentsController < ApplicationController
   
-  before_filter :load_location
-  before_filter :restrict_access
+  	before_filter :load_location
+  	before_filter :restrict_access
 
 	def new
-  	@comment = @location.location_comments.build
+		@location = Location.find(params["location_id"])
+  		@comment = @location.location_comments.build
 	end
 
 	def create
+		@location = Location.find(params["location_id"])
 		@comment = @location.location_comments.build(comment_params)
 		@comment.user = current_user
 
 		if @comment.save
-			redirect_to @location, notice: "Comment created!"
+			redirect_to @location, notice: "Review created!"
 		else
 			render :new
 		end
@@ -32,7 +34,7 @@ class LocationCommentsController < ApplicationController
   	end
 
   	def comment_params
-  		params.require(:location_comment).permit(:comment, :vote, :user_id)
+  		params.require(:location_comment).permit(:vote,)
   	end
 
 end
