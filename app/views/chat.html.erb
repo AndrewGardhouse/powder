@@ -1,0 +1,6 @@
+<script src="http://localhost:3000/realtime_videos/client.js" type="text/javascript"></script>
+
+<% broadcast "/messages/new" do %>
+  $("#chat").append("<%= escape_javascript render(@message) %>");
+<% end %>
+$("#new_message")[0].reset();
