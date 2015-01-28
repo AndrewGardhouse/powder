@@ -17,4 +17,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require bs_posts
+//= require chat_controller
+
+//= require websocket_rails/main
 
