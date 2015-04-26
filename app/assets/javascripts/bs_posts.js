@@ -6,6 +6,6 @@ $(document).on('page:change', function() {
         $('#' + id_active_button).addClass("active");
       });
         
-$(".btn-group > .btn").click(function(e){
-        $(this).addClass("active");
-    });
+// $(".btn-group > .btn").click(function(e){
+//         $(this).addClass("active");
+//     });
