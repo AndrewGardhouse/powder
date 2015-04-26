@@ -1,0 +1,13 @@
+<% if @comment.errors.any?%>
+  <div class="alert alert-dismissable alert-danger">
+    <%= pluralize(@comment.errors.count, "error") %>
+    prevented the review from being saved: 
+    <ul class="list-unstyled">
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><strong><%= msg %></strong></li>
+      <%end%>
+    </ul>
+  </div>
+<%end%>
+
+<%= render 'form' %>

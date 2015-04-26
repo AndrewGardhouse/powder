@@ -14,8 +14,7 @@
         <div class="row">
       <% end %>
           <div class="m-video col-sm-3">
-            <%= link_to image_tag(video.thumbnail(video.url)), video_path(video.id), :class => 'thumbnail img-responsive' %>
-            <%= video.title %><br/>
+            <%= link_to video.title, video_path(video.id) %> <br/>
 
             <small><cite title="Source Title">Posted by: <%= video.user.name %></cite></small><br/>
             

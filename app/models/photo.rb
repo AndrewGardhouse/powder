@@ -1,6 +1,6 @@
 class Photo < ActiveRecord::Base
   belongs_to :user
-  has_many :photo_comments, dependent: :destroy
+  has_many :comments, as: :commentable
 
   acts_as_taggable
 

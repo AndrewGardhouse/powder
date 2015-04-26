@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 201412231910156) do
+ActiveRecord::Schema.define(version: 20150426010847) do
 
   create_table "answers", force: true do |t|
     t.string   "description"
@@ -33,10 +33,11 @@ ActiveRecord::Schema.define(version: 201412231910156) do
     t.datetime "updated_at"
   end
 
-  create_table "location_comments", force: true do |t|
+  create_table "comments", force: true do |t|
+    t.text     "text"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
     t.integer  "user_id"
-    t.integer  "location_id"
-    t.integer  "vote"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -65,22 +66,12 @@ ActiveRecord::Schema.define(version: 201412231910156) do
     t.datetime "updated_at"
   end
 
-  create_table "photo_comments", force: true do |t|
-    t.string   "comment"
-    t.integer  "upvotes",    default: 0
-    t.integer  "user_id"
-    t.integer  "photo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "photos", force: true do |t|
     t.string   "title"
     t.string   "description"
     t.string   "image"
-    t.integer  "upvotes",          default: 0
+    t.integer  "upvotes",     default: 0
     t.integer  "user_id"
-    t.integer  "photo_comment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -129,38 +120,25 @@ ActiveRecord::Schema.define(version: 201412231910156) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.text     "password_digest",     limit: 255
+    t.text     "password_digest", limit: 255
     t.integer  "upvotes"
     t.integer  "question_id"
     t.integer  "answer_id"
-    t.integer  "location_comment_id"
     t.integer  "bspost_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin",                           default: false
+    t.boolean  "admin",                       default: false
     t.integer  "photo_id"
-    t.integer  "photo_comment_id"
   end
 
-  add_index "users", ["photo_comment_id"], name: "index_users_on_photo_comment_id"
   add_index "users", ["photo_id"], name: "index_users_on_photo_id"
-
-  create_table "video_comments", force: true do |t|
-    t.string   "text"
-    t.integer  "votes",      default: 0
-    t.integer  "user_id"
-    t.integer  "video_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "videos", force: true do |t|
     t.string   "title"
     t.string   "url"
     t.string   "description"
-    t.integer  "votes",            default: 0
+    t.integer  "votes",       default: 0
     t.integer  "user_id"
-    t.integer  "video_comment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

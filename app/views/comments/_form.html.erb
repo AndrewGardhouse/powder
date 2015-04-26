@@ -1,0 +1,10 @@
+<%= form_for [@commentable || @video || @photo, Comment.new] do |f| %>
+  
+  <div class="form group">
+    <%= f.text_area :text, :class => "form-control", rows: "3", required: "true" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Post It", :class => "btn btn-primary", id: "comment-submit" %>
+  </div>
+  
+<% end %>
