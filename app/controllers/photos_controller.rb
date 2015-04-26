@@ -14,7 +14,7 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(photo_params)
-    @photo.user_id = current_user.id
+    @photo.user = current_user
     if @photo.save
       redirect_to photos_path
     else
@@ -27,13 +27,14 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.find(params[:id])
+    @comment = @photo.comments
   end
 
   protected
 
     def photo_params
       params.require(:photo).permit(
-        :title, :description, :image, :tag_list, :user_id
+        :title, :description, :image, :tag_list, :user
         )
     end
 end

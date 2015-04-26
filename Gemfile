@@ -38,6 +38,8 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'sqlite3'
 gem 'whenever', :require => false
+gem "better_errors"
+gem "binding_of_caller"
 
 # Use unicorn as the app server
 # gem 'unicorn'

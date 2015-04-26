@@ -1,21 +1,16 @@
 Rails.application.routes.draw do
 
-  get 'newsposts/index'
-
-  get 'newsposts/show'
-
   resources :home, only: [:new, :create, :destroy]
 
   resources :videos do
-    resources :video_comments, only: [:new, :create, :destroy]
+    resources :comments, only: [:new, :create, :destroy]
   end
 
   resources :photos do
-    resources :photo_comments, only: [:new, :create, :destroy]
+    resources :comments, only: [:new, :create, :destroy]
   end
 
   resources :locations do
-    resources :location_comments, only: [:new, :create, :destroy]
     get :upvote
   end
 

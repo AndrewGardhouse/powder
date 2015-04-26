@@ -1,11 +1,10 @@
 class Video < ActiveRecord::Base
   belongs_to :user
-  has_many   :video_comments, dependent: :destroy
+  has_many :comments, as: :commentable
 
   acts_as_taggable
 
-  validates :url,
-    presence: true
+  validates :url, presence: true
 
   def embed(url)
     video = VideoInfo.new(url)

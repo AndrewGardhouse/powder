@@ -22,21 +22,13 @@
 </div>
 
 <% if current_user %>
-  <%= link_to "Comment", new_photo_photo_comment_path(@photo), :class => "btn btn-primary pull-right" %>
+  <%= link_to "Comment", "#", :class => "btn btn-primary pull-right", "data-toggle" => "modal", "data-target" => "#myModal" %>
 <% else %>
   <%= link_to "Log in", new_session_path, :class => "btn btn-primary pull-right" %>
 <% end %>
+
 <h3>Comments</h3>
 <hr/>
 
-<div class="row comments container">
-  <% @photo.photo_comments.each do |comment|%>
-  <div class="col-sm-12 well well-sm">
-    <%= image_tag gravatar(comment.user.email, 48), :class => "img-circle pull-left" %>
-    <%= comment.user.try(:name) %> 
-    <em>on <%=formatted_date(comment.created_at)%></em><br>
-    <%= comment.comment %>
-  </div>
-  <%end%>
-</div>
-
+<%= render 'comments/comments', object: @photo %>
+<%= render 'shared/comment_modal' %>
