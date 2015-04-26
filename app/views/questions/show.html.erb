@@ -26,11 +26,14 @@
 <div class="row comments container">
   <% @answers.each do |answer|%>
     <div class="col-sm-12 well well-sm">
-      <!-- Here I am passing the size I want (number 48), together with email -->
-      <%= image_tag gravatar(answer.user.email, 48), :class => "img-circle pull-left" %>
-      <%= answer.user.try(:name) %> 
-      <em>on <%=formatted_date(answer.created_at)%></em><br>
-      <%= answer.description %>
+      <div class="col-sm-1">
+        <%= image_tag gravatar(answer.user.email, 48), :class => "img-circle pull-left" %>  
+      </div>
+      <div class="col-sm-11">
+        <%= answer.user.try(:name) %> 
+        <em>on <%=formatted_date(answer.created_at)%></em><br>
+        <%= answer.description %>
+      </div>
     </div>
   <%end%>
 </div>
